@@ -10,15 +10,16 @@ RIGHT = 1
 DOWN = 2
 LEFT = 3
 
+
 class Player:
-    def __init__(self, win, name, atk, hp, pos=None, speed=1):
+    def __init__(self, win, name, atk, hp, pos=None, speed=1, facing=NORTH):
         self.win   = win
         self.name  = name
         self.atk   = atk
         self.hp    = hp
-        self.pos   = pos or [(window_size[1]//2), (window_size[0]//2), NORTH]
+        self.pos   = pos or [(window_size[1]//2), (window_size[0]//2), facing]
         self.speed = speed
-        self.sprite= self._get_sprite()
+        self.sprite= '☺'
         
     def _get_sprite(self):
         sprite_name = self._as_word(self.pos[2]).lower()
@@ -27,33 +28,37 @@ class Player:
 
     def look(self, direction):
         self.pos[2] = direction
-        self.sprite = self._get_sprite()
-        
+        self.sprite = '☺'
 
     def move(self, to):
         # TODO: handle case where player touches the edges of the map
+        self.win.clear()
         if to == LEFT:
             self.look(WEST)
-            self.pos[0] -= self.speed
             if self.pos[0] < 0:
                 self.pos[0] = 0
+            else:
+                self.pos[0] -= self.speed
         elif to == RIGHT:
             self.look(EAST)
-            self.pos[0] += self.speed
             if self.pos[0] > window_size[1]:
                 self.pos[0] = window_size[1]
+            else:
+                self.pos[0] += self.speed
         elif to == DOWN:
             self.look(SOUTH)
-            self.pos[1] += self.speed
             if self.pos[1] > window_size[0]:
                 self.pos[1] = window_size[0]
+            else:
+                self.pos[1] += self.speed
         elif to == UP:
             self.look(NORTH)
-            self.pos[1] -= self.speed
             if self.pos[1] < 0:
                 self.pos[1] = 0
+            else:
+                self.pos[1] -= self.speed
         else:
-            raise NotImplementedError(
+            raise TypeError(
                 "Unrecognized direction code for Player.move: {}".format(to))
 
     def interact(self, object='facing'):

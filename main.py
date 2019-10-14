@@ -22,7 +22,7 @@ p = Player(win, 'Cléa', atk=80, hp=100)
 while True:
     key = win.getch()
     if key in keys.pause:
-        #TODO: pause menu
+        win.addstr(0,0,'ogrioejgorejogiejriog')
         break
     elif key in keys.down:
         p.move(DOWN)
@@ -37,5 +37,3 @@ while True:
         
     # p.debug()
     p.render()
-    
-    
