@@ -3,7 +3,7 @@ import curses
 import termcolor
 import pyfiglet
 import keys
-from player import Player
+from player import *
 from config import window_size
 
 curses.initscr()
@@ -25,16 +25,17 @@ while True:
         #TODO: pause menu
         break
     elif key in keys.down:
-        p.move('down')
+        p.move(DOWN)
     elif key in keys.up:
-        p.move('up')
+        p.move(UP)
     elif key in keys.right:
-        p.move('right')
+        p.move(RIGHT)
     elif key in keys.left:
-        p.move('left')
+        p.move(LEFT)
     elif key in keys.interact:
         p.interact()
         
-    p.debug()
+    # p.debug()
+    p.render()
     
     
