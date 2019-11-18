@@ -25,14 +25,14 @@ def which_camp(answer):
     RESISTANCE = ["resistance", "revolte", "rebellion"]
 
     if answer not in QUEEN and answer not in RESISTANCE:
-        raise ValueError("Please choose your side or gtfo")
+        return None
 
     is_with_queen = answer in QUEEN
 
     # Check for inverted responses
     AGAINST = ["contre", "pas pour"]
 
-    invert_counts = sum(answer.count(AGAINST[i]) for i in AGAINST)
+    invert_counts = sum(answer.count(i) for i in AGAINST)
     for _ in range(invert_counts):
         is_with_queen = not is_with_queen
 
@@ -49,5 +49,7 @@ def get_input(question, choices=None):
             choices_template[1].join(choices) + choices_template[2]
     else:
         choices_str = ""
+        
+    template = [ t.format(q=question, choices=choices_str) for t in template ]
 
-    return input(template.format(q=question, choices=choices_str))
+    return input(template[0] + question + template[1])
