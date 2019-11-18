@@ -20,6 +20,7 @@ class Player:
         self.pos   = pos or [(window_size[1]//2), (window_size[0]//2), facing]
         self.speed = speed
         self.sprite= '☺'
+        self.reputation = 0 # Value between -1 and 1: -1 == rly bad, 1 == gr8
         
     def _get_sprite(self):
         sprite_name = self._as_word(self.pos[2]).lower()
