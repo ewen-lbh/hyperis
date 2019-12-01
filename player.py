@@ -12,7 +12,7 @@ LEFT = 3
 
 
 class Player:
-    def __init__(self, win, name, atk, hp, pos=None, speed=1, facing=NORTH):
+    def __init__(self, win=None, name=None, atk=100, hp=100, pos=None, speed=1, facing=NORTH):
         self.win   = win
         self.name  = name
         self.atk   = atk
@@ -20,10 +20,12 @@ class Player:
         self.pos   = pos or [(window_size[1]//2), (window_size[0]//2), facing]
         self.speed = speed
         self.sprite= '☺'
-        ### Values between 
-        self.reputation = 0 # Value between -1 and 1: -1 == rly bad, 1 == gr8
-        self.food  = 1 # ∈ [0; 1]
-        self.health = 1 # 
+        ### STATS: Values between 0 and 1
+        self.reputation = 0
+        self.food  = 1
+        self.health = 1
+        self.smart = 1/2
+        self.strength = 1/2
         
     def _get_sprite(self):
         sprite_name = self._as_word(self.pos[2]).lower()
@@ -93,3 +95,5 @@ position    x: {posx}, y: {posy}, facing: {facing}
     
     def render(self):
         self.win.addstr(self.pos[1], self.pos[0], self.sprite)        
+
+player = Player()

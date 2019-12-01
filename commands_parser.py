@@ -2,41 +2,21 @@
 Parse commands from the user
 """
 from ui import typewriter
+from unidecode import unidecode
+from termcolor import cprint
 
-def yes_or_no(answer, accept_idk=True):
+def yes_or_no(answer, accept_idk=True, error_message="Veuillez répondre correctement"):
     YES = ["oui", "yes", "ouais", "ja", "ya", "da", "si"]
-    NO = ["blyat", "блять", "niet", "non", "no", "nein", "nan", "nope", "nop"]
+    NO = ["non", "blyat", "блять", "niet", "no", "nein", "nan", "nope", "nop"]
     IDK = ["jsp", "chais pas", "je ne sais pas", "jsais pas", "je sais pas"]
+    
+    choices = [YES, NO]
+    if accept_idk: choices.append(IDK)
+    
+    return ask(choices, False, error_message)
 
-    if answer.count(YES) > 0:
-        return True
-    if answer.count(NO) > 0:
-        return False
-    if accept_idk and answer.count(IDK) > 0:
-        return None
-
-    raise ValueError("Please answer with yes or no")
-
-
-def which_camp(answer):
-    answer = answer.replace('é', 'e').replace('è', 'e').lower()
-
-    QUEEN = ["reine", "lydia", "von hardenberg"]
-    RESISTANCE = ["resistance", "revolte", "rebellion"]
-
-    if answer not in QUEEN and answer not in RESISTANCE:
-        return None
-
-    is_with_queen = answer in QUEEN
-
-    # Check for inverted responses
-    AGAINST = ["contre", "pas pour"]
-
-    invert_counts = sum(answer.count(i) for i in AGAINST)
-    for _ in range(invert_counts):
-        is_with_queen = not is_with_queen
-
-    return "queen" if is_with_queen else "resistance"
+QUEEN = ["reine", "lydia", "von hardenberg"]
+RESISTANCE = ["resistance", "revolte", "rebellion"]
 
 
 def get_input(question, choices=None):
@@ -53,3 +33,23 @@ def get_input(question, choices=None):
     template = [ t.format(q=question, choices=choices_str) for t in template ]
 
     return input(template[0] + question + template[1])
+
+def dbg(string): print(f'[DEBUG] {string}')
+
+def ask(choices, allow_not_in_choices=False, error_message="Veuillez faire un choix valide !"):
+    ans = input("> ")
+    ans = unidecode(ans)
+    dbg(ans)
+    for choice in choices:
+        if type(choice) is not list:
+            choice = [choice]
+        dbg(choice)
+        for choice_synonym in choice:
+            dbg(choice_synonym)
+            if choice_synonym in ans:
+                return choice[0]
+    if allow_not_in_choices:
+        return None
+    else:
+        cprint('\n'+error_message, 'red')
+        return ask(choices, allow_not_in_choices, error_message)

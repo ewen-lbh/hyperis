@@ -2,12 +2,16 @@ from ui import typewriter
 from colr import Colr as C
 
 class Character:
-    def __init__(self, name, role, klass, color):
+    def __init__(self, name, role=None, klass=None, color=None, side=None, traits=None, is_from=None, special=False):
         self.name, self.name_russian = name
         if self.name_russian is None: self.name_russian = self.name
         self.role = role
         self.klass = klass
         self.color = color
+        self.side = side
+        self.traits = traits
+        self.is_from = is_from
+        self.special = special
         
     def say(self, text):
         character_str = "[{}]".format(self.name_russian) 

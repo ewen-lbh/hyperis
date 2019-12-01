@@ -9,7 +9,7 @@ def title(style="default"):
 from time import sleep
 import sys
 
-def typewriter(string, speed=30, method="char"):
+def typewriter(string, speed=40, method="char"):
     if method == "char":
         delay_next_char = False
         for character in string:
