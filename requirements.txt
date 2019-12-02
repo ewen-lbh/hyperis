@@ -1,0 +1,4 @@
+colr
+unidecode
+fuzzywuzzy
+python-levenshtein

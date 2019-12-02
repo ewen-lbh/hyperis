@@ -1,6 +1,5 @@
 from characters import *
-from ui import typewriter
-from commands_parser import ask
+from ui import typewriter, ask
 from player import player
 
 Artur.say("Merci d'avoir rejoint nos rangs. Bienvenue dans la résistance, dont je suis le chef, {}.".format(Artur.name_russian))
@@ -10,11 +9,11 @@ Dans le quartier général de la résistance, tout semble calme. Très calme. Tr
 """
 )
 
-action = ask((['tarot', 'repos'], 'entraînement'), True)
+action = ask((['tarot', 'repos'], ['entraînement', 'entraîner']), "Choisi entre jouer au tarot ou t'entraîner", False)
 
 if action == 'tarot':
-    player.smart += 0.01
+    player.change('smart', 0.01)
 elif action == 'entraînement':
-    player.strength += 0.05
+    player.change('strength', 0.05)
 
 typewriter("Un résistant s'approche de toi pour te dire que le chef veut te voir")

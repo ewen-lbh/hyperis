@@ -1,5 +1,5 @@
-from ui import typewriter, title
-from commands_parser import ask, QUEEN, RESISTANCE
+from ui import typewriter, title, ask
+from commands_parser import QUEEN, RESISTANCE
 from player import player
 
 intro = """Il y avait depuis 1687, un royaume nommé Hyperis. 
@@ -24,9 +24,15 @@ Vos choix pourront peut-être changer l’histoire...
 typewriter(title(), speed=5, method="line")
 # typewriter(intro, speed=25)
 
-camp = ask([QUEEN, RESISTANCE], False, 'Veuillez choisir un camp !')
+camp = ask(
+            [
+                ["resistance", "revolte", "rebellion"],
+                ["reine", "lydia", "von hardenberg", "royaume"],
+            ], 
+             'Veuillez choisir un camp !'
+          )
 
-if camp == "queen":
+if camp == "reine":
     import story.queen_side
 else:
     import story.resistance_side
