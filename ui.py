@@ -30,11 +30,11 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: s
     closest, score = process.extractOne(ans, flat_choices)
     # Si le score de similarité est assez élevé, on considère que le choix du joueur correspond au synonyme extrait.
     # Sinon, on considère que la réponse du joueur était en dehors des choix.
-    if score >= 60:
+    if score >= 75:
         # On passe sur chaque choix
         for synonyms in choices:
             # On voit si le choix extrait par fuzzywuzzy est dans la liste de synonymes pour ce choix
-            if closest in synonyms:
+            if closest in [unidecode(s) for s in synonyms]:
                 # On fait une ligne vide
                 print()
                 # On revoie le premier synonyme pour ce choix
@@ -105,6 +105,10 @@ def typewriter(
         # Si ce fragment est un espace et que le précédent en était un aussi, on n'attend pas le délai.
         if fragment == ' ' and prev_fragment == ' ':
             continue
+        # Si ce fragment est un espace et que le fragment précédent était un point, c'est une fin de phrase:
+        # On rajoute un délai additionnel
+        if fragment == ' ' and prev_fragment in ('.', '?', '!'):
+            sleep(0.5)
         # On attend le délai avant d'écrire le prochain fragment.
         sleep(delay)
 
@@ -125,7 +129,7 @@ def ask_bool(error_msg: str = None, ask_again: bool = True):
 def title(kind: str, num: int, name: str):
     kind = kind.lower()
     # Décorer la décoration en fonction du type de titre
-    if kind == 'chapter':
+    if kind == 'chapitre':
         decoration = colored('~ ~ ~ {title} ~ ~ ~', 'yellow')
     elif kind == 'act':
         decoration = colored('====== {title} ======', 'red')
@@ -150,7 +154,7 @@ def act(num: int, name: str):
     return title('act', num, name)
 
 def chapter(num: int, name: str):
-    return title('chapter', num, name)
+    return title('chapitre', num, name)
 
 # Raccourcis pour typewriter()
 def narrator(text: str, speed: int = 30):
