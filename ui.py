@@ -59,7 +59,7 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: s
 
 def typewriter(
     text: str, 
-    speed: int = 30, 
+    speed: int = 27, 
     method = 'char', 
     end='\n', 
     wrap_text: bool = True, 
