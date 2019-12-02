@@ -1,3 +1,8 @@
 from characters import *
+from ui import *
 
-Lydia.say("Bon choix. Bienvenue parmi nous! MUAUAHHAHAHHAHHAHAHHAHAHAHHA")
+act(1, '')
+chapter(1, '')
+
+Lydia.say("Bon choix. Bienvenue parmi nous!")
+

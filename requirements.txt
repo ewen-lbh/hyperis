@@ -2,3 +2,4 @@ colr
 unidecode
 fuzzywuzzy
 python-levenshtein
+termcolor

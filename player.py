@@ -43,10 +43,12 @@ class Player:
         #                            \______________________________/
         message = "%s: %s%s -> %s" % (name, '+' if value > 0 else '', value, new_val)
         
-        if value < 1:
-            cprint(message, 'red')
-        elif value > 1:
-            cprint(message, 'green')
+        print('\n[', end='')
+        if value < 0:
+            cprint(message, 'red', end='')
+        elif value > 0:
+            cprint(message, 'green', end='')
+        print(']\n')
 
 
 player = Player()

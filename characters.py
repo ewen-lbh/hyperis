@@ -14,10 +14,20 @@ class Character:
         self.special = special
         
     def say(self, text):
-        character_str = "[{}]".format(self.name_russian) 
-        character_str = C().hex(self.color, character_str)
+        # On mets des crochets autour du nom du personnage, et on espace
+        name = "[{}]  ".format(self.name_russian) 
+        # On récupère la longueur avant de rajouter les caractères invisibles indiquant la couleur
+        name_len = len(name)
+        # On colore le préfixe du nom du personnage
+        name = C().hex(self.color, name)
         
-        typewriter(character_str + "  " + text)
+        typewriter(
+            name + text, 
+            end='\n\n', 
+            textwrapper_args={
+                'subsequent_indent': name_len * ' '
+            }
+        )
     
 
 ## PERSOS PRINCIPAUX

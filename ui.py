@@ -1,15 +1,24 @@
 from time import sleep
 from unidecode import unidecode
 from fuzzywuzzy import process
+from textwrap import TextWrapper
+from shutil import get_terminal_size
+from termcolor import colored
 import sys
 
-def title(style="default"):
+def previous(lisst, index):
+    if index < 0: return None
+    return lisst[index-1]
+
+def hyperis_title(style="default"):
     with open('main-title-{}.txt'.format(style), 'r', encoding='utf8') as file:
         return file.read()
 
-def ask(choices: list, error_msg: str, restrict_to_choices: bool = True):
-    # Récupérer la réponse du joueur, et enlève les accents.
-    ans = unidecode(input('> '))
+def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: str = ""):
+    # Colorer l'indice de réponse
+    hint = colored(hint, 'cyan')
+    # Récupérer la réponse du joueur, et enlève les accents. Mettre l'indice de réponse si appliquable
+    ans = unidecode(input(f'{hint}> '))
     # Certains choix n'auront pas de synonymes et seront donc simplement des chaîne de caractères.
     # On normalise la liste de choix pour que tout les choix soit une liste de synonymes
     choices = [ [s] if type(s) is not list else s for s in choices ]
@@ -21,11 +30,13 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True):
     closest, score = process.extractOne(ans, flat_choices)
     # Si le score de similarité est assez élevé, on considère que le choix du joueur correspond au synonyme extrait.
     # Sinon, on considère que la réponse du joueur était en dehors des choix.
-    if score >= 85:
+    if score >= 60:
         # On passe sur chaque choix
         for synonyms in choices:
             # On voit si le choix extrait par fuzzywuzzy est dans la liste de synonymes pour ce choix
             if closest in synonyms:
+                # On fait une ligne vide
+                print()
                 # On revoie le premier synonyme pour ce choix
                 return synonyms[0]
     """
@@ -46,7 +57,26 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True):
     except RecursionError:
         sys.exit("Veuillez relancer le programme et décidez-vous à repondre correctement! >:(")
 
-def typewriter(text: str, speed: int = 30, method = 'char'):
+def typewriter(
+    text: str, 
+    speed: int = 30, 
+    method = 'char', 
+    end='\n', 
+    wrap_text: bool = True, 
+    textwrapper_args: dict = None
+):
+    # On passe le texte en str
+    text = str(text)
+
+    if wrap_text:
+        # On utilise TextWrapper pour éviter les retours à la ligne bizarres
+        textwrapper_args = textwrapper_args or {}
+        wrapper = TextWrapper(
+            width=get_terminal_size().columns,
+            **textwrapper_args
+        )
+        text = wrapper.fill(text)
+
     # On divise le texte en fragments, selon la méthode utilisée
     if method == 'char':
         # Division caractère par caractère
@@ -55,28 +85,73 @@ def typewriter(text: str, speed: int = 30, method = 'char'):
         # Division ligne par ligne
         fragments = [line + '\n' for line in text.split('\n')]
     else:
-        # Si jamais la méthode utilisée n'est pas reconnue, on lève
-        # une erreur.
+        # Si jamais la méthode utilisée n'est pas reconnue, on lève une erreur.
         raise ValueError('Unknown typewriter method ' + method)
-    # On calcule la valeur du délai à appliquer entre l'écriture de 
-    # chaque fragment
+
+    # On calcule la valeur du délai à appliquer entre l'écriture de chaque fragment
     delay = 1/speed
+
     # Pour chaque fragment...
-    for fragment in fragments:
+    for i, fragment in enumerate(fragments):
+        # On récupère le fragment précédent
+        prev_fragment = previous(fragments, i)
+        
         # On affiche le fragment, sans retour à la ligne
         print(fragment, end='')
+        
         # On "flush" la sortie (module sys)
         sys.stdout.flush()
-        # On attend le délai avant d'écrire le prochain fragment
-        sleep(delay)
-    # On met un retour à la ligne final
-    print()
 
-def ask_bool():
+        # Si ce fragment est un espace et que le précédent en était un aussi, on n'attend pas le délai.
+        if fragment == ' ' and prev_fragment == ' ':
+            continue
+        # On attend le délai avant d'écrire le prochain fragment.
+        sleep(delay)
+
+    # On met un retour à la ligne final
+    print(end, end='')
+
+def ask_bool(error_msg: str = None, ask_again: bool = True):
     return ask(
         [
             ["oui", "yes", "ouais", "ja", "ya", "da", "si"], 
             ["non", "blyat", "блять", "niet", "no", "nein", "nan", "nope", "nop"]
         ],
-        "Ceci est une question fermée! Répondez par oui ou par non"
-        )
+        (error_msg or "Ceci est une question fermée! Répondez par oui ou par non"),
+        restrict_to_choices=ask_again
+    ) == 'oui'
+
+
+def title(kind: str, num: int, name: str):
+    kind = kind.lower()
+    # Décorer la décoration en fonction du type de titre
+    if kind == 'chapter':
+        decoration = colored('~ ~ ~ {title} ~ ~ ~', 'yellow')
+    elif kind == 'act':
+        decoration = colored('====== {title} ======', 'red')
+    else:
+        return ValueError(f"Unknown title kind {kind}")
+    
+    # Récupérer la taille du terminal
+    width, height = get_terminal_size()
+
+    # Créer le titre à partir de `kind`, `num` et `name`.
+    name = f"{kind.title()} {num}: {name}"
+    # Appliquer les décorations
+    decorated = decoration.format(title=name)
+    # Centrer le texte en utilisant la décoration, et espacer avec des lignes vides
+    decorated = '\n' + decorated.center(width) + '\n'
+
+    # Afficher le titre!
+    typewriter(decorated, 5, 'line', wrap_text=False)
+
+# Raccourcis pour title()
+def act(num: int, name: str):
+    return title('act', num, name)
+
+def chapter(num: int, name: str):
+    return title('chapter', num, name)
+
+# Raccourcis pour typewriter()
+def narrator(text: str, speed: int = 30):
+    return typewriter(text, speed, end='\n\n')
