@@ -1,91 +1,54 @@
-from config import window_size
+from termcolor import cprint
+import os
 
-NORTH = 0
-EAST = 1
-SOUTH = 2
-WEST = 3
-
-UP = 0
-RIGHT = 1
-DOWN = 2
-LEFT = 3
-
+UI_STATS = {
+    'hp': "Vie",
+    'speed': "Vitesse",
+    'reputation': "Réputation",
+    'food': "Niveau d'alimentation",
+    'strength': "Force",
+    'smart': "Intelligence"
+}
 
 class Player:
-    def __init__(self, win, name, atk, hp, pos=None, speed=1, facing=NORTH):
-        self.win   = win
-        self.name  = name
-        self.atk   = atk
-        self.hp    = hp
-        self.pos   = pos or [(window_size[1]//2), (window_size[0]//2), facing]
-        self.speed = speed
-        self.sprite= '☺'
+    def __init__(self):
+        try:
+            self.name = os.getlogin()
+        except FileNotFoundError:
+            self.name = None
+        self.hp         = 100
+        self.speed      = 100
+        self.reputation = 0
+        self.food       = 1
+        self.smart      = 1/2
+        self.strength   = 0
+
+    def change(self, stat, value):
+        # On récupère la valeur actuelle pour la modifier
+        val = getattr(self, stat)
+        # On change la valeur
+        setattr(self, stat, val+value)
+        # On récupère la nouvelle valeur
+        new_val = getattr(self, stat)
+
+        # On récupère le nom de la stat
+        name = UI_STATS.get(stat, None)
+        # Si il n'y en a pas, on quitte maintenant:
+        # La modification n'entraînera pas l'affichage d'un message.
+        if name is None: return
+
+        # On crée le message à afficher: Nom: gain/perte -> nouvelle valeur.
+
+        #                   Affiche le signe même lorsque la valeur est positive
+        #                            \______________________________/
+        message = "%s: %s%s -> %s" % (name, '+' if value > 0 else '', value, new_val)
         
-    def _get_sprite(self):
-        sprite_name = self._as_word(self.pos[2]).lower()
-        with open("sprites/player/facing-%s.txt" % sprite_name, 'r') as file:
-            return file.read()
+        print('\n[', end='')
+        if value < 0:
+            cprint(message, 'red', end='')
+        elif value > 0:
+            cprint(message, 'green', end='')
+        print(']\n')
 
-    def look(self, direction):
-        self.pos[2] = direction
-        self.sprite = '☺'
 
-    def move(self, to):
-        # TODO: handle case where player touches the edges of the map
-        self.win.clear()
-        if to == LEFT:
-            self.look(WEST)
-            if self.pos[0] < 0:
-                self.pos[0] = 0
-            else:
-                self.pos[0] -= self.speed
-        elif to == RIGHT:
-            self.look(EAST)
-            if self.pos[0] > window_size[1]:
-                self.pos[0] = window_size[1]
-            else:
-                self.pos[0] += self.speed
-        elif to == DOWN:
-            self.look(SOUTH)
-            if self.pos[1] > window_size[0]:
-                self.pos[1] = window_size[0]
-            else:
-                self.pos[1] += self.speed
-        elif to == UP:
-            self.look(NORTH)
-            if self.pos[1] < 0:
-                self.pos[1] = 0
-            else:
-                self.pos[1] -= self.speed
-        else:
-            raise TypeError(
-                "Unrecognized direction code for Player.move: {}".format(to))
-
-    def interact(self, object='facing'):
-        # TODO
-        raise NotImplementedError('Interact is not implemented yet')
-    
-    def _as_word(self, code):
-        return {
-            NORTH: 'NORTH',
-            SOUTH: 'SOUTH',
-            EAST: 'EAST',
-            WEST: 'WEST',
-        }.get(code, '?')
-
-    def debug(self):
-        self.win.addstr(0, 0, """-----Player "{name}"-----
-atk         {atk}
-hp          {hp}
-position    x: {posx}, y: {posy}, facing: {facing}
---------------------------------""".format(
-            hp=self.hp,
-            atk=self.atk,
-            posx=self.pos[0],
-            posy=self.pos[1],
-            facing=self._as_word(self.pos[2]),
-            name=self.name
-        ))
-    
-    def render(self):
-        self.win.addstr(self.pos[1], self.pos[0], self.sprite)        
+player = Player()
