@@ -53,7 +53,7 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: s
     # Retourner la valeur renvoyée par un nouvelle appel à la
     # fonction, re-demandant une réponse à l'utilisateur (récursion)
     try:
-        return ask(choices, error_msg)
+        return ask(choices, error_msg, hint)
     except RecursionError:
         sys.exit("Veuillez relancer le programme et décidez-vous à repondre correctement! >:(")
 
