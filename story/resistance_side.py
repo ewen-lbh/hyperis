@@ -60,9 +60,22 @@ ans = ask(
     hint="Parler à"
 )
 
-narrator("----- EN TRAVAUX ------", speed=2)
+
 
 if ans == 'brune' :
     narrato("Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.")
 
     Johanna.say("Bonjour ...")
+
+elif ans == 'blonde' :
+    narrator("----- EN TRAVAUX POUR LA BLONDE ------", speed=2)
+
+elif ans == 'grand' :
+    narrator("----- EN TRAVAUX POUR LE GRAND------", speed=2)
+
+elif ans == 'blonde' :
+    narrator("----- EN TRAVAUX POUR LE BLOND ------", speed=2)
+
+elif ans == 'fin' :
+    narrator("----- EN TRAVAUX POUR LE FIN ------", speed=2)
+
