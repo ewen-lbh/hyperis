@@ -76,7 +76,7 @@ print('\033[0m', end='')
 
 print('\n' * 4)
 typewriter(hyperis_title(), speed=5, method="line", wrap_text=False)
-narrator("""Il y avait depuis 1687, un royaume nommé Hyperis. 
+narrator("""Il y avait depuis 1681, un royaume nommé Hyperis. 
 Sa naissance étouffa celle du Saint Empire Romain Germanique et des Empires Russe et Autrichiens. 
 Le royaume devint alors le plus grand de tous. Cependant, jamais il ne se déclara comme un empire. 
 Depuis lors, la Reine du pays était vénérée autant que Dieu et les couronnements étaient vus comme des actes divins. ...
