@@ -151,5 +151,6 @@ Wladek = Character(
 
 Toma = Character(
     name=("Toma Gloglouglouglaglougleglengloglolen", "Тома Глоглуглуглаглуглэглэнглоглолэн"),
+    is_from="madagascar",
     role="vendeur"
 )
