@@ -38,6 +38,7 @@ Lydia = Character(
     role="Reine d'Hyperis",
     klass="??",
     color="#b4a7d6",
+    is_from="grand harz",
     side="queen"
 )
 
@@ -46,6 +47,7 @@ Agidius = Character(
     role="Général de la Garde Royale et de l'Armée",
     klass="??",
     color="#f1c232",
+    is_from="bliarussa",
     side="queen"
 )
 
@@ -54,6 +56,7 @@ Artur = Character(
     role="Chef de la résistance",
     klass="??",
     color="#6d9eeb",
+    is_from="Ruma",
     side="resistance"
 )
 
@@ -62,6 +65,7 @@ Enrich = Character(
     role="Sous-chef de la résistance",
     klass="??",
     color="#cc0000",
+    is_from="Ukaland",
     side="resistance"
 )
 
@@ -69,6 +73,7 @@ Grzeska = Character(
     name=("Grzęskä Czekoczkięwich", None),
     role="Ambassadeur de la RDN",
     klass="??",
+    is_from=["république des deux nations","pologne"],
     color="#674ea7",
     side=None
 )
@@ -139,7 +144,7 @@ Sveika = Character(
     name=("Sveika Dienaki", "Свеика Денаки"),
     special=True,
     role="marchand",
-    is_from="lituanie"
+    is_from=["republique des deux nations","lituanie"]
 )
 
 Wladek = Character(
