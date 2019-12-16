@@ -44,7 +44,7 @@ else:
 
     Enrich.say(f"Tu es sûr que {player.name} est vraiment la bonne personne ?")
 
-    narrator("Artur te fais un rapide signe comme quoi il veut parler seul avec le sous-chef et surtout pour t’intimer d’aller rejoindre les autres. Par conséquent tu sors donc du bureau du chef.")
+    --narrator("Artur te fais un rapide signe comme quoi il veut parler seul avec le sous-chef et surtout pour t’intimer d’aller rejoindre les autres. Par conséquent tu sors donc du bureau du chef.")
 
 narrator("Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femmes et trois hommes. Parmis les femmes, l’une est blonde et l’autre brune, tandis que chez les hommes, l’un est un grand costaud, un autre est blond et le dernier est fin comme une brindille.")
 
@@ -63,12 +63,15 @@ ans = ask(
 
 
 if ans == 'brune' :
-    narrato("Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.")
+    narrato("Tu t'approche de la bonasse brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.")
 
     Johanna.say("Bonjour ...")
 
 elif ans == 'blonde' :
     narrator("----- EN TRAVAUX POUR LA BLONDE ------", speed=2)
+
+elif ans == 'rousse' :
+    narrator("Excellent choix !", speed=2)
 
 elif ans == 'grand' :
     narrator("----- EN TRAVAUX POUR LE GRAND------", speed=2)
