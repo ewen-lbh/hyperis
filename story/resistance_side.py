@@ -63,5 +63,6 @@ ans = ask(
 narrator("----- EN TRAVAUX ------", speed=2)
 
 if ans == 'brune' :
-    narrato("Tu t'approche de la brune.")
-    Johanna.say("")
+    narrato("Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.")
+
+    Johanna.say("Bonjour ...")
