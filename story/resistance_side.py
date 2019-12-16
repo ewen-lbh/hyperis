@@ -27,7 +27,7 @@ Artur.say(f"C'est bien {player.name} ?")
 ans = ask_bool("*soupir* Je prends ça pour un oui...", ask_again=False)
 
 if not ans:
-    narrator("Artur sourit, désespéré")
+    narrator("Artur soupire, désespéré")
 
 Artur.say("Peu importe. J'ai une mission pour toi. C'est important alors écoute moi bien. Un convoi d’arme pour l’armée arrive à Potsdam ce soir vers 19h. Avec une équipe, tu devras l’intercepter avant qu’il n’arrive à bon port. Compris ?")
 
@@ -61,3 +61,7 @@ ans = ask(
 )
 
 narrator("----- EN TRAVAUX ------", speed=2)
+
+if ans == 'brune' :
+    narrato("Tu t'approche de la brune.")
+    Johanna.say("")
