@@ -3,3 +3,4 @@ unidecode
 fuzzywuzzy
 python-levenshtein
 termcolor
+lark-parser
