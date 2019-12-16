@@ -1,31 +1,20 @@
 from lark import Lark
-hyp_parser = Lark(r"""
-%import common.ESCAPED_STRING -> STRING
-%import common.SIGNED_NUMBER  -> SIGNED_NUMBER
-%import common.WS
-%ignore WS
+import sys
+from unidecode import unidecode
 
-?indent: "   " -> indent
-?text: /.+/ -> text
+story_file = sys.argv[1] if len(sys.argv) > 1 else "story"
 
-?char_name: "[" /[^\]]+/  "]" -> name
-?char_line: char_name " "+ text -> character
-?narrator_line: "|" " "+ text -> narrator
+if not story_file.endswith('.pychemin'):
+      story_file += ".pychemin"
 
-?choices: text (", " text)* -> choices
-?input_condition: ">> " choices -> input
-?input_fallback: ">?" -> fallback
+with open('parser.lark', 'r') as file:
+      parser = Lark(file.read(), start='dialog')
 
-
-?directive: narrator_line
-          | char_line
-          | input_condition
-          | input_fallback
-dialog: (indent* directive /\n/)+
-""", start='dialog')
-
-with open('story.pychemin', 'r') as file:
-      cont = file.read()      
-_ = hyp_parser.parse(cont)
+with open(f'{story_file}', 'r') as file:
+      cont = file.read()
+      # cont = unidecode(cont)
+      
+_ = parser.parse(cont)
 print('_________parsed_content_________')
 print(_.pretty())
+print(_)
