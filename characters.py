@@ -78,6 +78,15 @@ Grzeska = Character(
     side=None
 )
 
+Unknown = Character(
+    name=("???", None),
+    role=None,
+    klass=None,
+    is_from=None,
+    color="#cccccc",
+    side=None
+)
+
 ##
 ## PERSOS SECONDAIRES
 
