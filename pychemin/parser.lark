@@ -59,6 +59,6 @@ _act_decoration: "=" ~ 2..10
           | new_act
           | new_chapter
           | play_sound
-        //   | dialog_characters
-    //   | dialog_line
+          | dialog_characters
+          | dialog_line
 dialog: (indent* directive /\n/)+
