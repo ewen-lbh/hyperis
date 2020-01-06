@@ -29,7 +29,7 @@
 >> oui
     @reputation +10
     [Artur] Bon, très bien. Tu peux rejoindre les autres dans le hall.
->>? non
+>?.
     @reputation -15
     [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper une diligence
     
@@ -42,11 +42,15 @@
 | Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femmes et trois hommes. Parmis les femmes, l’une est blonde et l’autre brune, tandis que chez les hommes, l’un est un grand costaud, un autre est blond et le dernier est fin comme une brindille.
 
 ? Parler à
->> brune
->> blonde
->> grand, costaud
->> blond
->> fin, brindille
+>* brune
+
+    | Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
+    [???] Bonjour ... Moi c'est Johanna ... 
+    >>
+        | Elle semble t'ignorer, peu importe ce que tu dis...
+>* blonde
+>* grand, costaud
+>* blond
+>* fin, brindille
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
-
