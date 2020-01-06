@@ -47,7 +47,7 @@
     | Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
     [???] Bonjour ... Moi c'est Johanna ... 
     >>
-        | Elle semble t'ignorer, peu importe ce que tu dis...
+        | Elle semble t'ignorer, peu importe ce que tu dis ... Tu abandonnes donc ta tentative de sociabilisation avec elle.
 >* blonde
 >* grand, costaud
 >* blond
