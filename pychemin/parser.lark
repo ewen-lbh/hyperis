@@ -21,11 +21,12 @@
 ?narrator_line: "|" " "* text -> narrator
 
 ?choice: text
-?choices: choice (", " choice)* -> choices
+?choices: choice ("," " "* choice)* -> choices
 ?input_condition_and_fallback: ">>?" " "* choices -> input_fallback
 ?input_fallback_dont_ask_again: ">?." -> fallback_dont_ask_again
 ?input_condition: ">>" " "* choices -> input
 ?input_fallback: ">?" -> fallback
+?input_required: ">*" " "* choices -> input_required
 ?input_hint: "?" " "* text -> hint
 
 ?load_file: "->" text -> load_file
@@ -38,10 +39,10 @@
 
 ?chapter_title: /[^-]+/ -> title
 ?act_title: /[^=]+/ -> title
-?chapter_decoration: "-" ~ 2..10
-?act_decoration: "=" ~ 2..10
-?new_chapter: chapter_decoration " "* chapter_title " "* chapter_decoration -> chapter
-?new_act: act_decoration " "* act_title " "* act_decoration -> act
+_chapter_decoration: "-" ~ 2..10
+_act_decoration: "=" ~ 2..10
+?new_chapter: _chapter_decoration " "* chapter_title " "* _chapter_decoration -> chapter
+?new_act: _act_decoration " "* act_title " "* _act_decoration -> act
 
 ?play_sound: ">" " "* text -> sound
 
@@ -52,6 +53,7 @@
           | input_fallback
           | input_condition_and_fallback
           | input_fallback_dont_ask_again
+          | input_required
           | load_file
           | stat_change
           | new_act
