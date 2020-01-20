@@ -2,7 +2,7 @@ from ui import typewriter
 from colr import Colr as C
 
 class Character:
-    def __init__(self, name, role=None, klass=None, color=None, side=None, traits=None, is_from=None, special=False):
+    def __init__(self, name, role=None, klass=None, color=None, side=None, traits=None, is_from=None, special=False, relation=0):
         self.name, self.name_russian = name
         if self.name_russian is None: self.name_russian = self.name
         self.role = role
@@ -12,6 +12,7 @@ class Character:
         self.traits = traits
         self.is_from = is_from
         self.special = special
+        self.relation = relation
         
     def say(self, text):
         # On mets des crochets autour du nom du personnage, et on espace
@@ -102,6 +103,8 @@ Melinda = Character(
     is_from="garen",
     side="resistance",
     traits=["blond"],
+    relation=30
+    
 )
 
 Anatoly = Character(
@@ -122,7 +125,8 @@ Johanna = Character(
     name=("Johanna Feuerbach", "Жохана Фоербах"),
     is_from="austri",
     side="resistance",
-    traits=["brune"]
+    traits=["brune"],
+    relation=-15
 )
 
 ## PNJ λ
@@ -166,5 +170,6 @@ Wladek = Character(
 Toma = Character(
     name=("Toma Gloglouglouglaglougleglengloglolen", "Тома Глоглуглуглаглуглэглэнглоглолэн"),
     is_from="madagascar",
-    role="vendeur"
+    role="vendeur",
+    relation=100
 )

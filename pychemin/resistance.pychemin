@@ -28,6 +28,7 @@
 
 >> oui
     @reputation +10
+    @Arthur:relation +10
     [Artur] Bon, très bien. Tu peux rejoindre les autres dans le hall.
 >?.
     @reputation -15
@@ -50,7 +51,22 @@
         | Elle semble t'ignorer, peu importe ce que tu dis ... Tu abandonnes donc ta tentative de sociabilisation avec elle.
 >* blonde
     | La blonde te sourit
-    [???] Salut ! Moi c'est Melinda !
+    [???] Salut ! Moi c'est Melinda ! Et toi ?
+    >> #name
+        @Melinda:relation +5
+        [Melinda] Enchantée #name !
+        | Elle te sourit
+    >?. 
+        @Melinda:relation -5
+        [Melinda] Il n'y a personne de ce nom ... ne te moque pas de moi ...
+        | Elle semble triste.
+    [Melinda] Sinon tu viens d'où ?
+    >> #counties
+        @is_from =#answer
+    =? Melinda.is_from == Player.is_from
+        @Melinda:relation +5
+        [Melinda] Ah toi aussi !
+        Elle sourit
 >* grand, costaud
 >* blond
 >* fin, brindille
