@@ -19,10 +19,13 @@
 
 [Artur] C'est bien #name ?
 
+>> oui
+    @Arthur:relation +5
 >> non
-    [Artur] *Sourit, désespéré*
+    | Il soupire, désespéré
 >?.
-    [Artur] *soupir* Je prends ça pour un oui...
+    | Il soupire
+    [Arthur] Je prends ça pour un oui...
 
 [Artur] Peu importe. J'ai une mission pour toi. C'est important alors écoute moi bien. Un convoi d’arme pour l’armée arrive à Potsdam ce soir vers 19h. Avec une équipe, tu devras l’intercepter avant qu’il n’arrive à bon port. Compris ?
 
@@ -32,6 +35,7 @@
     [Artur] Bon, très bien. Tu peux rejoindre les autres dans le hall.
 >?.
     @reputation -15
+    @Arthur:relation -15
     [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper une diligence
     
     | Enrich arrive au milieu de la conversation, légèrement désespéré … trèèès légèrement désespéré.
@@ -61,13 +65,17 @@
         [Melinda] Il n'y a personne de ce nom ... ne te moque pas de moi ...
         | Elle semble triste.
     [Melinda] Sinon tu viens d'où ?
+    ? Liste des Lands : Russa, Grand Harz, Garen, Bliarussa, Ukaland, Siberia, Ruma, Austri
     >> #counties
         @is_from =#answer
     =? Melinda.is_from == Player.is_from
         @Melinda:relation +5
         [Melinda] Ah toi aussi !
-        Elle sourit
+        | Elle sourit et votre conversation se termine la.
 >* grand, costaud
+    | Bien plus grand que toi, il te regarde de haut en bas avant de te sourir légèrement
+    [???] Heya. T'es celui qui nous accompagne ?
+    >> oui, ouai, yep, en effet, exact
 >* blond
 >* fin, brindille
 >?
