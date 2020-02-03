@@ -85,8 +85,8 @@
         -> game over
 >* blond
     | Alors que tu t'apprête à faire un pas vers le blond, ce dernier s'approche.
-    [???] Hey ! T'es celui qui nous accompagne. Moi c'est Anatoly Atanjlasor, de Siberia.
-    Le sibérien te sourit. 
+    [???] Hey ! T'es celui qui nous accompagne ? Moi c'est Anatoly Atanjlasor, de Siberia.
+    | Le sibérien te sourit. 
 >* fin, brindille
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
