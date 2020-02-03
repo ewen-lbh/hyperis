@@ -93,7 +93,9 @@
     | Le jeune homme ne remarque pas que tu t'approche de lui, trop occupé à caresser un chat qu'il tient dans les bras.
     ? Interpelle le
     >>
-        Il sursaute, lâchant un cri très peu viril, et le chat fuit. Le jeune homme te regarde, légèrement sous le choc.
-        [???] B-bonjour ...
+        | Il sursaute, lâchant un cri très peu viril, et le chat fuit. Le jeune homme te regarde, légèrement sous le choc.
+        [???] Oh ... B-bonjour ...
+    | Il se lève, un peu gêné
+    [???] J-je m'appelle Artyom ... E-et ... et toi ?
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
