@@ -96,6 +96,6 @@
         | Il sursaute, lâchant un cri très peu viril, et le chat fuit. Le jeune homme te regarde, légèrement sous le choc.
         [???] Oh ... B-bonjour ...
     | Il se lève, un peu gêné
-    [???] J-je m'appelle Artyom ... E-et ... et toi ?
+    [???] J-je m'appelle Artyom ... E-et ... et toi ? Oh nan attends, j-je sais ... c'est #name.
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
