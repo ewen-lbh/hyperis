@@ -68,6 +68,8 @@
     ? Liste des Lands : Russa, Grand Harz, Garen, Bliarussa, Ukaland, Siberia, Ruma, Austri
     >> #counties
         @is_from =#answer
+        [Melinda] Oh ! Ca doit être joli là-bas
+        | Elle sourit et votre conversation se termine la.
     =? Melinda.is_from == Player.is_from
         @Melinda:relation +5
         [Melinda] Ah toi aussi !
@@ -82,6 +84,9 @@
         Il s'approche de toi et te sort de force de la salle. De toute façon, tu ne peux pas vraiment rivaliser face à ce géant. Comme pour courronner le tout, très rapidement Arthur apprend la nouvelle et malheureusement pour toi, il considère ça comme un refus de faire la mission .... et donc une trahison ... Oui, ce n'est pas un jugement juste mais Arthur ne veux prendre aucun risque.
         -> game over
 >* blond
+    | Alors que tu t'apprête à faire un pas vers le blond, ce dernier s'approche.
+    [???] Hey ! T'es celui qui nous accompagne. Moi c'est Anatoly Atanjlasor, de Siberia.
+    Le sibérien te sourit. 
 >* fin, brindille
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
