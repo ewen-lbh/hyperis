@@ -48,7 +48,7 @@
 
 ? Parler à
 >* brune
-
+    ²
     | Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
     [???] Bonjour ... Moi c'est Johanna ... 
     >>
@@ -68,11 +68,12 @@
     ? Liste des Lands : Russa, Grand Harz, Garen, Bliarussa, Ukaland, Siberia, Ruma, Austri
     >> #counties
         @is_from =#answer
-        [Melinda] Oh ! Ca doit être joli là-bas
-        | Elle sourit et votre conversation se termine la.
-    =? Melinda.is_from == Player.is_from
+        =? Melinda.is_from == Player.is_from
         @Melinda:relation +5
         [Melinda] Ah toi aussi !
+        | Elle sourit et votre conversation se termine la.
+        else
+        [Melinda] Oh ! Ca doit être joli là-bas
         | Elle sourit et votre conversation se termine la.
 >* grand, costaud
     | Bien plus grand que toi, il te regarde de haut en bas avant de te sourir légèrement
@@ -96,6 +97,6 @@
         | Il sursaute, lâchant un cri très peu viril, et le chat fuit. Le jeune homme te regarde, légèrement sous le choc.
         [???] Oh ... B-bonjour ...
     | Il se lève, un peu gêné
-    [???] J-je m'appelle Artyom ... E-et ... et toi ? Oh nan attends, j-je sais ... c'est #name.
+    [???] J-je m'appelle Artyom ... E-et ... et toi ? Oh nan attends, j-je sais ... c'est #name. B-bienvenue dans l'équipe.
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
