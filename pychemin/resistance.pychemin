@@ -48,7 +48,6 @@
 
 ? Parler à
 >* brune
-    ²
     | Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
     [???] Bonjour ... Moi c'est Johanna ... 
     >>
@@ -105,3 +104,9 @@ Boris s'avança vers toi.
 Le groupe, toi compris, prit la direction de Potsdam. 
 
 --- La Mission ---
+
+Après une petite heure de route à cheval, tu arriva avec le groupe au niveau d'un tunel plutôt court qui donnait facilement accès aux trains qui passaient.
+[Boris] Une demi heure avant l'arrivé du train !
+Le grand baraqué, qui semblait être le chef du groupe, commença à placer chacun de vous.
+[Boris] #name ! Tu vas de te mettre de l'autre coté du tunel, juste au dessus. Tu sauteras sur le train quand il passera.
+Tu hochas la tête pour aquiecer et alla te placer. Maintenant, il fallait attendre un peu moins d'une demi heure avant de voir le train passer.
