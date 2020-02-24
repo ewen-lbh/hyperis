@@ -1,24 +1,21 @@
+[Artur] Merci d'avoir rejoint nos rangs. Bienvenue dans la résistance !
+
 ==== ??? ====
 
 --- La Resistance ---
 
-[Artur] Merci d'avoir rejoint nos rangs. Bienvenue dans la résistance !
 
 | Dans le quartier général de la résistance, tout semble calme. Très calme. Trop calme. Toi, du haut de ton rang de simple résistant arrivé depuis peu, tu cherche quelque chose a faire. L'endroit est rempli de truc en tout genre. Allant de la simple table où quelques résistants jouent au tarot à la salle d'entrainement, tu as du mal à choisir quoi faire. Tu sais cependant qu'en temps que résistant, les efforts autant mentaux que physiques font partie de ton quotidien. Il est temps de faire un choix sur ce que tu veux faire. Ce n'est pas en restant planté là que tu arriveras à quelque chose.
-
 >> tarot, repos
     @smart +1
 >> entraînement, entraîner
     @strength +5
-
 | Un résistant s'approche de toi pour te dire que le chef veut te voir
 
 ...
 
 | C'est la première fois que Artur Zarzeit, le chef de la résistance, demande à te voir. Non, qu'il demande à voir un non gradé en fait. En réalité, cela te fais un peu peur. Il doit bien avoir une bonne raison pour que la personne la plus recherchée par la Garde Royale se montre à un résistant lambda.
-
 [Artur] C'est bien #name ?
-
 >> oui
     @Arthur:relation +5
 >> non
@@ -28,7 +25,6 @@
     [Arthur] Je prends ça pour un oui...
 
 [Artur] Peu importe. J'ai une mission pour toi. C'est important alors écoute moi bien. Un convoi d’arme pour l’armée arrive à Potsdam ce soir vers 19h. Avec une équipe, tu devras l’intercepter avant qu’il n’arrive à bon port. Compris ?
-
 >> oui
     @reputation +10
     @Arthur:relation +10
@@ -36,12 +32,9 @@
 >?.
     @reputation -15
     @Arthur:relation -15
-    [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper une diligence
-    
+    [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper un train.
     | Enrich arrive au milieu de la conversation, légèrement désespéré … trèèès légèrement désespéré.
-
     [Enrich] Tu es sûr que #name est vraiment la bonne personne ?
-
     | Artur te fais un rapide signe comme quoi il veut parler seul avec le sous-chef et surtout pour t’intimer d’aller rejoindre les autres. Par conséquent tu sors donc du bureau du chef.
 
 | Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femmes et trois hommes. Parmis les femmes, l’une est blonde et l’autre brune, tandis que chez les hommes, l’un est un grand costaud, un autre est blond et le dernier est fin comme une brindille, assis par terre.
