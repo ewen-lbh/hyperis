@@ -13,7 +13,7 @@
 
 | Un résistant s'approche de toi pour te dire que le chef veut te voir
 
---- La mission ---
+...
 
 | C'est la première fois que Artur Zarzeit, le chef de la résistance, demande à te voir. Non, qu'il demande à voir un non gradé en fait. En réalité, cela te fais un peu peur. Il doit bien avoir une bonne raison pour que la personne la plus recherchée par la Garde Royale se montre à un résistant lambda.
 
@@ -100,3 +100,8 @@
     [???] J-je m'appelle Artyom ... E-et ... et toi ? Oh nan attends, j-je sais ... c'est #name. B-bienvenue dans l'équipe.
 >?
     | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
+Boris s'avança vers toi.
+[Boris] Bon ! On va y aller. Le train arrive dans 1h30.
+Le groupe, toi compris, prit la direction de Potsdam. 
+
+--- La Mission ---
