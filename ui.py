@@ -59,7 +59,7 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: s
 
 def typewriter(
     text: str, 
-    speed: int = 27, 
+    speed: int = 10, 
     method = 'char', 
     end='\n', 
     wrap_text: bool = True, 
@@ -158,4 +158,4 @@ def chapter(num: int, name: str):
 
 # Raccourcis pour typewriter()
 def narrator(text: str, speed: int = 30):
-    return typewriter(text, speed, end='\n\n')
+    return typewriter(text, speed, end='\n')

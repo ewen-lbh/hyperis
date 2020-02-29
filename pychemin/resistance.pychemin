@@ -1,8 +1,9 @@
-==== Le Grand JaaJ ====
+[Artur] Merci d'avoir rejoint nos rangs. Bienvenue dans la résistance !
+
+==== ??? ====
 
 --- La Resistance ---
 
-[Artur] Merci d'avoir rejoint nos rangs. Bienvenue dans la résistance !
 
 Dans le quartier général de la résistance, tout semble calme. Très calme. Trop calme. Toi, du haut de ton rang de simple résistant arrivé depuis peu, tu cherche quelque chose a faire. L'endroit est rempli de truc en tout genre. Allant de la simple table où quelques résistants jouent au tarot à la salle d'entrainement, tu as du mal à choisir quoi faire. Tu sais cependant qu'en temps que résistant, les efforts autant mentaux que physiques font partie de ton quotidien. Il est temps de faire un choix sur ce que tu veux faire. Ce n'est pas en restant planté là que tu arriveras à quelque chose.
 
@@ -13,12 +14,12 @@ Dans le quartier général de la résistance, tout semble calme. Très calme. Tr
 
 Un résistant s'approche de toi pour te dire que le chef veut te voir
 
---- La mission ---
+...
 
-C'est la première fois que Artur Zarzeit, le chef de la résistance, demande à te voir. Non, qu'il demande à voir un non gradé en fait. En réalité, cela te fais un peu peur. Il doit bien avoir une bonne raison pour que la personne la plus recherchée par la Garde Royale se montre à un résistant lambda.
-
+| C'est la première fois que Artur Zarzeit, le chef de la résistance, demande à te voir. Non, qu'il demande à voir un non gradé en fait. En réalité, cela te fais un peu peur. Il doit bien avoir une bonne raison pour que la personne la plus recherchée par la Garde Royale se montre à un résistant lambda.
 [Artur] C'est bien #name ?
-
+>> oui
+    @Arthur:relation +5
 >> non
     Il soupire, désespéré
 >?.
@@ -26,26 +27,22 @@ C'est la première fois que Artur Zarzeit, le chef de la résistance, demande à
     [Arthur] Je prends ça pour un oui...
 
 [Artur] Peu importe. J'ai une mission pour toi. C'est important alors écoute moi bien. Un convoi d’arme pour l’armée arrive à Potsdam ce soir vers 19h. Avec une équipe, tu devras l’intercepter avant qu’il n’arrive à bon port. Compris ?
-
 >> oui
     @reputation +10
     [Artur] Bon, très bien. Tu peux rejoindre les autres dans le hall.
 >?.
     @reputation -15
-    [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper une diligence
-    
-    Enrich arrive au milieu de la conversation, légèrement désespéré … trèèès légèrement désespéré.
-
+    @Arthur:relation -15
+    [Artur] Je ne vais tout de même pas me répéter … On va faire bref. Il faut que tu te rende à Potsdam pour stopper un train.
+    | Enrich arrive au milieu de la conversation, légèrement désespéré … trèèès légèrement désespéré.
     [Enrich] Tu es sûr que #name est vraiment la bonne personne ?
+    | Artur te fais un rapide signe comme quoi il veut parler seul avec le sous-chef et surtout pour t’intimer d’aller rejoindre les autres. Par conséquent tu sors donc du bureau du chef.
 
-    Artur te fais un rapide signe comme quoi il veut parler seul avec le sous-chef et surtout pour t’intimer d’aller rejoindre les autres. Par conséquent tu sors donc du bureau du chef.
-
-Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femmes et trois hommes. Parmis les femmes, l’une est blonde et l’autre brune, tandis que chez les hommes, l’un est un grand costaud, un autre est blond et le dernier est fin comme une brindille.
+| Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femmes et trois hommes. Parmis les femmes, l’une est blonde et l’autre brune, tandis que chez les hommes, l’un est un grand costaud, un autre est blond et le dernier est fin comme une brindille, assis par terre.
 
 ? Parler à
 >* brune
-
-    Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
+    | Tu t'approche de la brune. Elle semble ne pas vraiment vouloir te parler. Malgré tout, elle engage la conversation avant toi.
     [???] Bonjour ... Moi c'est Johanna ... 
     >>
         Elle semble t'ignorer, peu importe ce que tu dis ... Tu abandonnes donc ta tentative de sociabilisation avec elle.
@@ -71,16 +68,36 @@ Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femm
 >* grand, costaud
     Bien plus grand que toi, il te regarde de haut en bas avant de te sourir légèrement
     [???] Heya. T'es celui qui nous accompagne ?
-    >> oui, ouai, yep, en effet, exact
+    >> oui, ouai, yep, en effet, exact, tout à fait, tout a fait
         [???] Cool ! Donc t'es #name. Enchanté. Moi c'est Boris.
+        | L'homme à l'accent russe stéréotypé prend une posture fière. 
+        [Boris] Je suis le chef de l'escouade et si tu as la moindre question, vient me demander. Aller, tu a surement d'autres choses à faire.
     >?. 
         [???] ... Alors qu'est-ce que tu fais là ? T'es pas censé être là ...
-        Il s'approche de toi et te sort de force de la salle. De toute façon, tu ne peux pas vraiment rivaliser face à ce géant. Comme pour courronner le tout, très rapidement Arthur apprend la nouvelle et malheureusement pour toi, il considère ça comme un refus de faire la mission .... et donc une trahison ... Oui, ce n'est pas un jugement juste mais Arthur ne veux prendre aucun risque.
+        | Il s'approche de toi et te sort de force de la salle. De toute façon, tu ne peux pas vraiment rivaliser face à ce géant. Comme pour courronner le tout, très rapidement Arthur apprend la nouvelle et malheureusement pour toi, il considère ça comme un refus de faire la mission .... et donc une trahison ... Oui, ce n'est pas un jugement juste mais Arthur ne veux prendre aucun risque.
         -> game over
 >* blond
     Alors que tu t'apprête à faire un pas vers le blond, ce dernier s'approche.
     [???] Hey ! T'es celui qui nous accompagne ? Moi c'est Anatoly Atanjlasor, de Siberia.
     Le sibérien te sourit. 
 >* fin, brindille
+    | Le jeune homme ne remarque pas que tu t'approche de lui, trop occupé à caresser un chat qu'il tient dans les bras.
+    ? Interpelle le
+    >>
+        | Il sursaute, lâchant un cri très peu viril, et le chat fuit. Le jeune homme te regarde, légèrement sous le choc.
+        [???] Oh ... B-bonjour ...
+    | Il se lève, un peu gêné
+    [???] J-je m'appelle Artyom ... E-et ... et toi ? Oh nan attends, j-je sais ... c'est #name. B-bienvenue dans l'équipe.
 >?
-    Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
+    | Choisit avec qui tu veux parler. Utilise un trait physique pour désigner la personne.
+Boris s'avança vers toi.
+[Boris] Bon ! On va y aller. Le train arrive dans 1h30.
+Le groupe, toi compris, prit la direction de Potsdam. 
+
+--- La Mission ---
+
+Après une petite heure de route à cheval, tu arriva avec le groupe au niveau d'un tunel plutôt court qui donnait facilement accès aux trains qui passaient.
+[Boris] Une demi heure avant l'arrivé du train !
+Le grand baraqué, qui semblait être le chef du groupe, commença à placer chacun de vous.
+[Boris] #name ! Tu vas de te mettre de l'autre coté du tunel, juste au dessus. Tu sauteras sur le train quand il passera.
+Tu hochas la tête pour aquiecer et alla te placer. Maintenant, il fallait attendre un peu moins d'une demi heure avant de voir le train passer.
