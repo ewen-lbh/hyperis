@@ -1,0 +1,69 @@
+%import common.ESCAPED_STRING -> STRING
+%import common.SIGNED_NUMBER -> SIGNED_NUMBER
+
+indent: "    "
+id: /[\w_]+/
+!interpolation: "#" id
+TEXT: /.+/
+narrator_line: "|" " "* TEXT
+
+dialog_characters_name: /[^\]&]+/ -> name
+dialog_characters: "[" dialog_characters_name " "+ "&" " "+ dialog_characters_name "]"
+dialog_line: "-" " "+ TEXT -> line
+
+char_text: TEXT
+char_name: "[" /[^\]]+/ "]"
+char_line: char_name " "* char_text
+
+if: "=?" " "+ /.+/
+else: "=!" " "+ /.+/
+
+choices: /.+/ ((";" | ",") " "* /.+/)*
+input_hint: "?" " "* TEXT
+input_condition_fallback: ">>?" " "* choices
+input_fallback_and_continue: ">?." " "*
+input: ">>" " "* choices?
+input_fallback: ">?"
+play_sound: "/" " "* id
+input_required: ">*" " "* choices
+
+load_file: "->" TEXT
+
+// stat_change_name: /[^:]+/ -> stat
+// stat_change_target: /[^:]+/ -> target
+// stat_change_operator: /\+|-|\*|=|reset/ -> operation
+// stat_change_value: SIGNED_NUMBER | interpolation -> value
+// stat_change: "@" [stat_change_target ":"] " "* stat_change_name " "+  stat_change_operator " "* [stat_change_value]
+
+_chapter_title: /[^-]+/
+_act_title: /[^=]+/
+_CHAPTER_DECORATION: "-" ~ 2..10
+_ACT_DECORATION: "=" ~ 2..10
+
+new_chapter: _CHAPTER_DECORATION " "* _chapter_title " "* _CHAPTER_DECORATION
+new_act: _ACT_DECORATION " "* _act_title " "* _ACT_DECORATION
+
+text_line: indent* TEXT
+
+_directive: narrator_line
+          | char_line
+          | input_hint
+          | input
+          | input_fallback
+          | input_condition_fallback
+          | input_fallback_and_continue
+          | input_required
+          | load_file
+          // | stat_change
+          | new_act
+          | new_chapter
+          | play_sound
+          | dialog_characters
+          | dialog_line
+          | if
+          | else
+          | text_line
+
+line: indent* _directive
+_emptyline: indent*
+dialog: ((line | _emptyline) /\r?\n/)+
