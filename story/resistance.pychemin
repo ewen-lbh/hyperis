@@ -59,6 +59,7 @@ Tu te retrouve donc dans le hall, avec cinq autres résistants. Il y a deux femm
     [Melinda] Sinon tu viens d'où ?
     ? Liste des Lands : Russa, Grand Harz, Garen, Bliarussa, Ukaland, Siberia, Ruma, Austri
     >> #counties
+        //TODO: handle non-numeric stat changes based on the class' property type
         @is_from =#answer
     =? Melinda.is_from == Player.is_from
         [Melinda] Ah toi aussi !

@@ -1,0 +1,12 @@
+== L'oral d'ISN ==
+
+[Morandini] Tu es sûr que tu vas pouvoir expliquer tout ça ?
+
+? Répond judicieusement
+>> je veux tenter l'impossible
+    [Morandini] Quel fou... Enfin bref, vas-y.
+>> c'est déjà foutu
+    [Morandini] C'est bien ce que je disais.
+    -> game over
+
+--- La Grammaire ---

@@ -1,0 +1,125 @@
+@import circular-std
+@import reset
+
+body
+  max-width 800px
+  margin 0 auto
+  font-family 'CircularStd'
+  font-weight 200
+  font-size 15px
+  padding-bottom 100vh
+  scroll-padding-top 20px
+
+h1
+  font-family 'CircularStd'
+  font-weight bold
+  font-size 10vmin
+  margin-bottom 0
+
+p.intro
+  margin-top -.5em
+  font-size 1.5em
+  text-align center
+  font-weight normal
+
+h1, .center
+  text-align center
+  font-weight normal
+  
+.italic
+  font-style italic
+  
+// h2
+//   font-size 1.5em
+//   margin-bottom -0.8em
+//   margin-top 1.5em
+//   text-transform uppercase
+//   letter-spacing 2px
+//   text-align left
+
+h2
+  text-align center
+  font-size 3em
+  font-weight normal
+  page-break-before always
+  
+h3
+  &::before
+    content '###'
+    font-family 'Ligconsolata'
+    margin-right 0.25em
+    opacity 0.25
+  font-size 2em
+  margin-bottom 0.5em
+  font-weight normal
+
+h4
+  &::before
+    content '####'
+    font-family 'Ligconsolata'
+    margin-right 0.25em
+    opacity 0.25
+  font-size 1.5em
+  margin-bottom 0.5em
+  font-weight normal
+
+dl dd
+  margin-left 1em
+dl dt
+  color #1389FD
+  font-size 1.2em
+  margin-bottom 0.25em
+  margin-top 0.75em
+
+dl.horizontal
+  dt, dd
+    display inline-block
+    margin 0
+  dt
+    margin-right 0.5em
+    margin-bottom 1.2em
+
+pre
+  display block
+  background #E7F8FF
+  border-radius 5px
+  font-size 0.9em
+  padding 1.2em
+  white-space pre
+  overflow-x auto
+  line-height 1.2
+  font-family 'Ligconsolata'
+  font-feature-settings 'liga' 0
+  vertical-align middle
+
+details details
+  margin-left 1em
+details
+  margin-top 1em
+summary
+  font-style italic
+details p
+  margin-top .25em
+  margin-left 1.125em
+
+pre strong
+  font-weight bold
+  font-size 1.2em
+  display inline-block
+
+em
+  font-family 'CircularStd'
+  background #222222
+  display inline-flex
+  justify-content center
+  align-items center
+  color white
+  width 20px
+  height 20px
+  font-size 1rem
+  border-radius 50%
+
+.image
+  width 100%
+  display flex
+  justify-content center

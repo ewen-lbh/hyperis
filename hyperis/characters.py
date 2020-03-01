@@ -1,7 +1,6 @@
-from .ui import typewriter
-from colr import Colr as C
+from colr import color
 from termcolor import cprint, colored
-from .player import UI_STATS
+from collections import namedtuple
 
 class Character:
     def __init__(self, name, role=None, klass=None, color=None, side=None, traits=None, is_from=None, special=False, relation=0):
@@ -16,63 +15,6 @@ class Character:
         self.special = special
         self.relation = relation
         
-    def say(self, text):
-        # On mets des crochets autour du nom du personnage, et on espace
-        name = "[{}]  ".format(self.name_russian) 
-        # On récupère la longueur avant de rajouter les caractères invisibles indiquant la couleur
-        name_len = len(name)
-        # On colore le préfixe du nom du personnage
-        name = C().hex(self.color, name)
-        
-        typewriter(
-            name + text,
-            speed=40,
-            end='\n\n', 
-            textwrapper_args={
-                'subsequent_indent': name_len * ' '
-            }
-        )
-
-    def change(self, stat, op, value):
-        def rst(a, b):
-            raise NotImplementedError("Stat resetting is not implemented yet.")
-        ops = {
-            'add': lambda a, b: a + b,
-            'subtract': lambda a, b: a - b,
-            'set': lambda a, b: b,
-            'reset': rst,
-            'multiply': lambda a, b: a * b
-        }
-        op_symbols = {
-            'add': '+',
-            'subtract': '-',
-            'set': '-> ',
-            'reset': '-> ',
-            'multiply': '×'
-        }
-        # On récupère la valeur actuelle pour la modifier
-        val = getattr(self, stat)
-        # On change la valeur
-        setattr(self, stat, ops[op](val, value))
-        # On récupère la nouvelle valeur
-        new_val = getattr(self, stat)
-        diff = new_val - val
-
-        # On récupère le nom de la stat
-        name = UI_STATS.get(stat, None)
-        # Si il n'y en a pas, on quitte maintenant:
-        # La modification n'entraînera pas l'affichage d'un message.
-        if name is None: return
-
-        # On crée le message à afficher
-        color = 'red' if diff < 0 else 'green' if diff > 0 else 'white'
-        message = "| %s: %s [%s]" % (
-            name,
-            colored(op_symbols[op]+str(value), color, attrs=['bold']),
-            new_val
-        )
-        
-        cprint(message, attrs=['bold'])
 
 ## SPECIAL CHARACTERS
 ##
@@ -85,6 +27,11 @@ Unknown = Character(
     is_from=None,
     color="#cccccc",
     side=None
+)
+
+Morandini = Character(
+    name=("Prof d'ISN", None),
+    color="#00aaff"
 )
 
 ## PERSOS PRINCIPAUX

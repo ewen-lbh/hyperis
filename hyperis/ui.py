@@ -5,6 +5,9 @@ from textwrap import TextWrapper
 from shutil import get_terminal_size
 from termcolor import colored
 from . import debug, constants
+from hyperis.characters import Character
+from colr import color
+from termcolor import cprint
 import sys
 import os
 
@@ -22,10 +25,8 @@ def ask(choices: list, error_callback: callable = None, restrict_to_choices: boo
         def error_callback():
             print('Veuillez répondre correctement')
     debug.log(f"Called ask(choices={json.dumps(choices)}, error_cb={error_callback.__repr__()}, restrict_to_choices={json.dumps(restrict_to_choices)}, hint={json.dumps(hint)})")
-    # Colorer l'indice de réponse
-    hint = colored(hint, 'cyan')
     # Récupérer la réponse du joueur, et enlève les accents. Mettre l'indice de réponse si appliquable
-    ans = unidecode(input(f'{hint}> '))
+    ans = unidecode(input(colored(f'{hint}> ', 'cyan')))
     # Certains choix n'auront pas de synonymes et seront donc simplement des chaîne de caractères.
     # On normalise la liste de choix pour que tout les choix soit une liste de synonymes
     choices = [ [s] if type(s) is not list else s for s in choices ]
@@ -102,9 +103,8 @@ def typewriter(
 
     # On calcule la valeur du délai à appliquer entre l'écriture de chaque fragment
     delay = 1/speed
-    # Mode godspeed
-    # delay = 0.0001
-
+    
+    # TODO: print all fragments instantly when enter pressed during printing (skip like functionnality)
     # Pour chaque fragment...
     for i, fragment in enumerate(fragments):
         # On récupère le fragment précédent
@@ -162,6 +162,62 @@ def title(kind: str, num: int, name: str):
 
     # Afficher le titre!
     typewriter(decorated, 5, 'line', wrap_text=False)
+
+def say(character: Character, text: str):
+    name_str = f' {character.name_russian} '
+    # On colore le préfixe du nom du personnage
+    name_colored = color(name_str, fore='black', back=character.color)
+    print(name_colored, end=' ')
+    sys.stdout.flush()
+    sleep(0.5)
+    sys.stdout.flush()
+    typewriter(
+        f'{text}',
+        speed=30,
+        end='\n\n',
+        textwrapper_args={
+            'subsequent_indent': len(name_str) * ' ' + ' '
+        }
+    )
+
+def stat_change(stat_name, value, old_value, op, new_value):
+    def rst(a, b):
+        raise NotImplementedError("Stat resetting is not implemented yet.")
+    op_symbol = {
+        'add': '+',
+        'subtract': '-',
+        'set': '-> ',
+        'reset': '-> ',
+        'multiply': '×'
+    }[op]
+    is_numeric = type(value) is float
+    diff = new_value - old_value if is_numeric else None
+    # On récupère le nom de la stat
+    name = constants.STAT_NAMES.get(stat_name, None)
+    # Si il n'y en a pas, on quitte maintenant:
+    # La modification n'entraînera pas l'affichage d'un message.
+    if name is None: return
+    
+    if not is_numeric: color = 'cyan'
+    elif diff < 0:     color = 'red'
+    elif diff > 0:     color = 'green'
+    else:              color = 'white'
+
+    # On crée le message à afficher
+    op_styles = lambda txt: colored(txt, color, attrs=['bold'])
+    result_styles = lambda txt: colored(txt, attrs=['dark'])
+    operation_str = op_styles(op_symbol + str(value))
+    result_str = result_styles(f" => {new_value}")
+    
+    print(\
+f"""
+
+
+        {operation_str} {name} {'' if op == 'set' else result_str}
+
+
+""")
+    
 
 # Raccourcis pour title()
 def act(num: int, name: str):

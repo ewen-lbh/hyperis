@@ -1,4 +1,6 @@
 from termcolor import cprint
+from hyperis import constants
 
 def log(msg):
-  cprint(f'[DEBUG] {msg}', attrs=['dark'])
+  if constants.DEBUG_MODE:
+    cprint(f'[DEBUG] {msg}', attrs=['dark'])

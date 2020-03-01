@@ -3,12 +3,10 @@ from lark.indenter import Indenter
 import sys
 from termcolor import cprint
 from unidecode import unidecode
-from hyperis import ui
+from hyperis import ui, paths
 from hyperis import debug
 from hyperis.player import player, UI_STATS
 from hyperis import characters
-
-story_file = sys.argv[1] if len(sys.argv) > 1 else "story"
 
 def main(story_file):
       if not story_file.endswith('.pychemin'):
@@ -19,10 +17,10 @@ def main(story_file):
             lines = [ l for l in lines if l.strip() ]
             return '\n'.join(lines)
 
-      with open('pychemin/grammar.lark', 'r') as file:
+      with open(paths.GRAMMAR, 'r') as file:
             parser = Lark(_remove_blank_lines(file.read()), start='dialog', maybe_placeholders=True)
 
-      with open(f'story/{story_file}', 'r') as file:
+      with open(story_file, 'r') as file:
             cont = file.read()
             # cont = unidecode(cont)
 
@@ -132,7 +130,13 @@ def main(story_file):
                                           debug.log(f'Executing fallback directives')
                                           walk(fallback_reaction_directives, exec_ctx)
                               return _fb
-                        ctx['answer'] = ui.ask([json.loads(k) for k in input_condition.keys()], error_callback=fallback(ctx, exec_ctx), ask_again=input_fallback_continue, restrict_to_choices=not fallback_reaction_directives, hint=input_hint)
+                        ctx['answer'] = ui.ask(
+                              [json.loads(k) for k in input_condition.keys()],
+                              error_callback=fallback(ctx, exec_ctx),
+                              ask_again=not input_fallback_continue,
+                              restrict_to_choices=not fallback_reaction_directives,
+                              hint=input_hint
+                        )
                         for cond, directives in input_condition.items():
                               debug.log(f'{directives}')
                               if ctx['answer'] in json.loads(cond):
@@ -190,9 +194,10 @@ def main(story_file):
                         op = operation.data
                         target.change(stat_name, op, value)
                   elif directive.data == 'load_file':
+                        import os
                         file = directive.children[0].value.replace(' ', '_')
                         debug.log(f'Loading {file}.pychemin...')
-                        main(file)
+                        main(os.path.join(paths.STORY_DIR, file + '.pychemin'))
                   else:
                         print(i, str(directive) + '\n---')
                   prev_dirctive = directive

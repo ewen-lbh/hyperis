@@ -1,0 +1,15 @@
+Changement de statistique positif
+
+@food +15
+
+Changement de statistique négatif
+
+@food -15
+
+Changement de statistique neutre
+
+@food =1
+
+Changement de statistique non-numérique
+
+@name =#name
