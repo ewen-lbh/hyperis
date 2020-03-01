@@ -4,7 +4,9 @@ from fuzzywuzzy import process
 from textwrap import TextWrapper
 from shutil import get_terminal_size
 from termcolor import colored
+from . import debug, constants
 import sys
+import os
 
 def previous(lisst, index):
     if index < 0: return None
@@ -14,7 +16,12 @@ def hyperis_title(style="default"):
     with open('main-title-{}.txt'.format(style), 'r', encoding='utf8') as file:
         return file.read()
 
-def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: str = ""):
+def ask(choices: list, error_callback: callable = None, restrict_to_choices: bool = True, hint: str = "", ask_again = True):
+    import json
+    if error_callback is None:
+        def error_callback():
+            print('Veuillez répondre correctement')
+    debug.log(f"Called ask(choices={json.dumps(choices)}, error_cb={error_callback.__repr__()}, restrict_to_choices={json.dumps(restrict_to_choices)}, hint={json.dumps(hint)})")
     # Colorer l'indice de réponse
     hint = colored(hint, 'cyan')
     # Récupérer la réponse du joueur, et enlève les accents. Mettre l'indice de réponse si appliquable
@@ -45,17 +52,16 @@ def ask(choices: list, error_msg: str, restrict_to_choices: bool = True, hint: s
     n'a été renvoyée, c'est à dire si la réponse ne contenait aucun 
     des choix valides.
     """
-    # Si on autorise un choix en dehors de ceux proposés:
-    if not restrict_to_choices: return None
 
     # Afficher le message
-    typewriter(error_msg)
+    error_callback()
     # Retourner la valeur renvoyée par un nouvelle appel à la
     # fonction, re-demandant une réponse à l'utilisateur (récursion)
-    try:
-        return ask(choices, error_msg, hint)
-    except RecursionError:
-        sys.exit("Veuillez relancer le programme et décidez-vous à repondre correctement! >:(")
+    if ask_again:
+        try:
+            return ask(choices, error_callback, hint)
+        except RecursionError:
+            sys.exit("Veuillez relancer le programme et décidez-vous à repondre correctement! >:(")
 
 def typewriter(
     text: str, 
@@ -65,8 +71,14 @@ def typewriter(
     wrap_text: bool = True, 
     textwrapper_args: dict = None
 ):
+    
     # On passe le texte en str
     text = str(text)
+    
+    # Mode goodspeed
+    if constants.GODSPEED_MODE:
+        print(text)
+        return
 
     if wrap_text:
         # On utilise TextWrapper pour éviter les retours à la ligne bizarres
@@ -90,6 +102,8 @@ def typewriter(
 
     # On calcule la valeur du délai à appliquer entre l'écriture de chaque fragment
     delay = 1/speed
+    # Mode godspeed
+    # delay = 0.0001
 
     # Pour chaque fragment...
     for i, fragment in enumerate(fragments):

@@ -1,5 +1,7 @@
-from ui import typewriter
+from .ui import typewriter
 from colr import Colr as C
+from termcolor import cprint, colored
+from .player import UI_STATS
 
 class Character:
     def __init__(self, name, role=None, klass=None, color=None, side=None, traits=None, is_from=None, special=False, relation=0):
@@ -7,7 +9,7 @@ class Character:
         if self.name_russian is None: self.name_russian = self.name
         self.role = role
         self.klass = klass
-        self.color = color
+        self.color = color or '#fff'
         self.side = side
         self.traits = traits
         self.is_from = is_from
@@ -23,13 +25,67 @@ class Character:
         name = C().hex(self.color, name)
         
         typewriter(
-            name + text, 
+            name + text,
+            speed=40,
             end='\n\n', 
             textwrapper_args={
                 'subsequent_indent': name_len * ' '
             }
         )
-    
+
+    def change(self, stat, op, value):
+        def rst(a, b):
+            raise NotImplementedError("Stat resetting is not implemented yet.")
+        ops = {
+            'add': lambda a, b: a + b,
+            'subtract': lambda a, b: a - b,
+            'set': lambda a, b: b,
+            'reset': rst,
+            'multiply': lambda a, b: a * b
+        }
+        op_symbols = {
+            'add': '+',
+            'subtract': '-',
+            'set': '-> ',
+            'reset': '-> ',
+            'multiply': '×'
+        }
+        # On récupère la valeur actuelle pour la modifier
+        val = getattr(self, stat)
+        # On change la valeur
+        setattr(self, stat, ops[op](val, value))
+        # On récupère la nouvelle valeur
+        new_val = getattr(self, stat)
+        diff = new_val - val
+
+        # On récupère le nom de la stat
+        name = UI_STATS.get(stat, None)
+        # Si il n'y en a pas, on quitte maintenant:
+        # La modification n'entraînera pas l'affichage d'un message.
+        if name is None: return
+
+        # On crée le message à afficher
+        color = 'red' if diff < 0 else 'green' if diff > 0 else 'white'
+        message = "| %s: %s [%s]" % (
+            name,
+            colored(op_symbols[op]+str(value), color, attrs=['bold']),
+            new_val
+        )
+        
+        cprint(message, attrs=['bold'])
+
+## SPECIAL CHARACTERS
+##
+
+# The "unknown" character, use [???] in pychemin files
+Unknown = Character(
+    name=("???", None),
+    role=None,
+    klass=None,
+    is_from=None,
+    color="#cccccc",
+    side=None
+)
 
 ## PERSOS PRINCIPAUX
 ##   
@@ -79,15 +135,6 @@ Grzeska = Character(
     side=None
 )
 
-Unknown = Character(
-    name=("???", None),
-    role=None,
-    klass=None,
-    is_from=None,
-    color="#cccccc",
-    side=None
-)
-
 ##
 ## PERSOS SECONDAIRES
 
@@ -104,7 +151,6 @@ Melinda = Character(
     side="resistance",
     traits=["blond"],
     relation=30
-    
 )
 
 Anatoly = Character(
