@@ -259,7 +259,7 @@ char_line.2: _char_name " "* _char_text</pre>
     <p>Quand une statistique a un nom humain associé, il faut que l'utilisateur voit que sa stat a changée.</p>
     <p>Pour ce faire, on calcule la différence entre l'ancienne valeur et la nouvelle afin de décider de la couleur du texte.</p>
     <p>On affiche ensuite l'opération et sa valeur, le nom de la stat et la nouvelle valeur:</p>
-    <div class="image"><img src="http://static.mx3creations.com//stat-changes-ui.png"/></div>
+    <div class="image"><img src="http://static.mx3creations.com/stat-changes-ui.png"/></div>
     <h4>Faire parler les personnages</h4>
     <p>Les paroles prononcées par des personnages sont indentiques à celles du narrateur pour la partie texte sauf que l'on préfixe leur texte avec le nom du personnage. </p>
     <p>Chaque personnage est un objet instancié de la classe <code>Character</code>, et possède donc une couleur. Elle est utilisée comme couleur de fond pour le nom du personnage, et l'on décide de la couleur du texte en fonction: noir si l'arrière-plan est clair, et blanc dans le cas inverse, pour améliorer la lisibilité du nom.</p>
