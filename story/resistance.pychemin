@@ -106,5 +106,13 @@ Tu hochas la tête pour aquiecer et alla te placer. Maintenant, il fallait atten
 ...
 Un bruit lointain attira l'attention du groupe. C'était le train qui approchait. Tu devais donc réfléchir rapidement a la façon dont tu allais t'y prendre.
 ? Toutes tentatives impossibles ou vraiment trop risquées apportent de très gros risques pour le groupe ou le joueur. Que veux tu faire ?
->> sauter devant soi, sauter en avant, je saute devant moi, je saute en avant
->> ne pas sauter, je ne saute pas
+>> sauter devant soi, sauter en avant, je saute devant moi, je saute en avant, saute en avant
+    En cours
+>> ne pas sauter, je ne saute pas, saute pas
+    En cours
+>> remettre en cause le plan
+    En cours
+>>
+    En cours
+>?.
+    En cours
