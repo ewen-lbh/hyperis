@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>@font-face{font-family:'CircularStd';src:url("CircularStd-Black.woff2") format('woff2'), url("CircularStd-Black.woff") format('woff');font-weight:900;font-style:normal}@font-face{font-family:'CircularStd';src:url("CircularStd-BoldItalic.woff2") format('woff2'), url("CircularStd-BoldItalic.woff") format('woff');font-weight:bold;font-style:italic}@font-face{font-family:'CircularStd';src:url("CircularStd-BlackItalic.woff2") format('woff2'), url("CircularStd-BlackItalic.woff") format('woff');font-weight:900;font-style:italic}@font-face{font-family:'CircularStd';src:url("CircularStd-Medium.woff2") format('woff2'), url("CircularStd-Medium.woff") format('woff');font-weight:500;font-style:normal}@font-face{font-family:'CircularStd';src:url("CircularStd-Book.woff") format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'CircularStd';src:url("CircularStd-BookItalic.woff2") format('woff2'), url("CircularStd-BookItalic.woff") format('woff');font-weight:normal;font-style:italic}@font-face{font-family:'CircularStd';src:url("CircularStd-Bold.woff2") format('woff2'), url("CircularStd-Bold.woff") format('woff');font-weight:bold;font-style:normal}@font-face{font-family:'CircularStd';src:url("CircularStd-MediumItalic.woff2") format('woff2'), url("CircularStd-MediumItalic.woff") format('woff');font-weight:500;font-style:italic}*,:after,:before{-webkit-box-sizing:inherit;box-sizing:inherit}html{-webkit-box-sizing:border-box;box-sizing:border-box}input[type=email],input[type=password],input[type=search],input[type=text]{-webkit-appearance:none;-moz-appearance:none}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{-webkit-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}body{max-width:800px;margin:0 auto;font-family:'CircularStd';font-weight:200;font-size:15px;padding-bottom:100vh;scroll-padding-top:20px}h1{font-family:'CircularStd';font-weight:bold;font-size:10vmin;margin-bottom:0}p.intro{margin-top:-0.5em;font-size:1.5em;text-align:center;font-weight:normal}.center,h1{text-align:center;font-weight:normal}.italic{font-style:italic}h2{text-align:center;font-size:3em;font-weight:normal;page-break-before:always}h3{font-size:2em;margin-bottom:0.5em;font-weight:normal}h3:before{content:'###';font-family:'Ligconsolata';margin-right:0.25em;opacity:0.25}h4{font-size:1.5em;margin-bottom:0.5em;font-weight:normal}h4:before{content:'####';font-family:'Ligconsolata';margin-right:0.25em;opacity:0.25}dl dd{margin-left:1em}dl dt{color:#1389fd;font-size:1.2em;margin-bottom:0.25em;margin-top:0.75em}dl.horizontal dd,dl.horizontal dt{display:inline-block;margin:0}dl.horizontal dt{margin-right:0.5em;margin-bottom:1.2em}pre{display:block;background:#e7f8ff;border-radius:5px;font-size:0.9em;padding:1.2em;white-space:pre;overflow-x:auto;line-height:1.2;font-family:'Ligconsolata';-webkit-font-feature-settings:'liga' 0;font-feature-settings:'liga' 0;vertical-align:middle}details details{margin-left:1em}details{margin-top:1em}summary{font-style:italic}details p{margin-top:0.25em;margin-left:1.125em}pre strong{font-weight:bold;font-size:1.2em;display:inline-block}em{font-family:'CircularStd';background:#222;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff;width:20px;height:20px;font-size:1rem;border-radius:50%}.image{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}</style>
+    <title>PyChemin</title>
+  </head>
+  <body>
+    <h1>PyChemin</h1>
+    <p class="intro">Un langage simple et naturel pour écrires des aventures textuelles interactives</p>
+    <h2>La syntaxe</h2>
+    <p>PyChemin utilise une syntaxe très brève, constituée de séquences de caractères que l'on ne peut trouver facilement dans du texte, permettant l'écriture de contenu sans encombres. Pas d'ambiguité possible.</p>
+    <h3>Narrateur</h3>
+    <p>Quand le narrateur parle écrivez simplement votre texte. Pas de syntaxe nécéssaire, car c'est le plus utilisé dans une histoire textuelle:</p>
+    <pre>Il était une fois, en 2020, un langage de description d'histoire</pre>
+    <h3>Personnage</h3>
+    <p>Quand un personnage parle, la syntaxe reste très légère:</p>
+    <pre><strong>[</strong>Personnage<strong>]</strong> Bonjour, monde!</pre>
+    <p><code>Personnage</code> fait référence à l'objet correspondant définit dans <code>characters.py</code>. Le nom affiché à l'utilisateur sera la propriété <code>name</code> de l'objet.</p>
+    <h3>Questions au joueur</h3>
+    <p>Vous serez sûrement amené, dans votre histoire, à interagir avec votre personnage.</p>Voici comment s'y prendre:
+    <pre><strong>?</strong> Psst, choisissez un langage de programmation!
+<strong>>> js, javascript, python, ruby</strong>
+    [Ewen] Tu aimes le haut-niveau toi!
+<strong>>> cpp, c++, c</strong>
+    [Ewen] Hmm. Je vois. Moi les pointeurs, ça me fait peur!
+<strong>>?.</strong>
+    [Ewen] Ah. Je ne connais pas ton langage. Tan pis, ça à l'air de te plaire, et c'est l'essentiel!</pre>
+    <p>La première ligne, commençant par un "?", est facultative. Elle permet d'aider le joueur à repondre à la question, mais, la plupart du temps, le narrateur guide les choix du joueur.</p>
+    <p>Les lignes commençant par ">>" indiquent les choix possibles, séparés par des virgules. Tout les réponses données par le joueur qui sont dans cette liste effectueront les actions dans ce bloc.</p>
+    <p>Ne vous inquiétez pas, PyChemin est assez intelligent pour comprendre que "javascirpt" correspond à la première ligne (<a href="#input-processing">Voir comment</a>)</p>
+    <p>La ligne ">?." Indique quoi faire si le joueur répond en dehors des clous. En écrivant ">?" au lieu de ">?.", on indique à PyChemin que la question doit ensuite être posée de nouveau. Avec un point à la fin, l'histoire continue normalement.</p>
+    <p>"Et si j'ai plusieurs choix et que le joueur doit passer par toutes les réponses?"</p>
+    <p>Pas de soucis. Utilisez ">*" au lieu de ">>":</p>
+    <pre>[Mitsuha] Il doit bien être quelque part! Cherche dans ce cabanon
+Vous vous dirigez vers un cabanon, recouvert par des lianes.
+Après plusieurs minutes de combat, vous entrez dans le cabanon.
+Il y a un pot de miel, une guitare et un trombone, tous posés sur un coffre au fond de la salle.
+<strong>>* Miel</strong>
+  Le miel semble bon. 
+  Mais vu la date de péremption, dépassée depuis 32 ans, vous ne risquez pas une tartine.
+<strong>>* Guitare</strong>
+  Elle est totalement désaccordée
+<strong>>* Trombonne</strong>
+  Il requiert tant de souffle que vous n'arrivez pas à en faire sortir un seul son
+Après avoir inspecté tout les objets de la pièce, vous remarquez que le soleil a changé.
+</pre>
+    <h3>Chapitres & Actes</h3>
+    <p>Vous pouvez facilement découper votre histoire en actes et en chapitres:
+      <pre><strong>===</strong> Le Nouvel Ordre <strong>===</strong>
+[GénéralDuWSL] Suivez moi.
+
+<strong>---</strong> Le mystère des acronymes <strong>---</strong></pre>
+      <p>Notez que le nombre de tirets ou de signes égal ("=") doit être au minimum de 2</p>
+      <p>La numérotation des chapitres & actes se fait automatiquement. Voici ce que verra l'utilisateur:</p>
+      <div class="image"><img src="./chapters_acts.png"/></div>
+    </p>
+    <h3>Découpez votre histoire</h3>
+    <p>Quand votre magnifique histoire interactive aura grandi, il est important de rester organisé et de ne pas avoir 90 000 000 lignes dans un fichier. </p>
+    <p>C'est pour ça qu'il est important de créer plusieurs fichiers, et de charger les bons au bon moment.</p>
+    <p>Pour ce faire, créer d'autres fichiers <code>.pychemin</code> dans le même dossier, et utilisez des underscores "_" au lieu des espaces.</p>
+    <p>En suite, pour les appeler dans votre histoire, rien de plus simple:</p>
+    <pre>Vos choix pourront peut-être changer l’histoire... A vous de choisir votre camp.
+>> reine, lydia, von hardenberg, royaume
+    <strong>-> côté reine</strong> <em>1</em>
+>> resistance, revolte, rebellion, résistant
+    <strong>-> côté résistance</strong> <em>2</em>
+>?
+    Veuillez choisir un camp !</pre>
+    <dl class="horizontal">
+      <dt><em>1</em></dt>
+      <dd>Lancera "cote_reine.pychemin"</dd><br/>
+      <dt><em>2</em></dt>
+      <dd>Lancera "cote_resistance.pychemin"</dd>
+    </dl>
+    <h3>Changer des stats</h3>
+    <p>Votre joueur ainsi que les personnages avec qui il interagit ont sûrement plusieurs propriétés pouvant changer en fonction des actions. Vous pouvez changer ces propriétés facilement, voici la syntaxe:</p>
+    <pre><strong>@</strong>Cible<strong>:</strong>propriété opération</pre>
+    <p>Plusieurs opérations sont disponibles</p>
+    <dl>
+      <dt>Ajouter, soustraire ou multiplier</dt>
+      <dd> 
+        <p>Utilisez les symboles usuels: <code>+</code>, <code>-</code> et <code>*</code></p>
+        <pre>@Melinda:relation <strong>+5</strong></pre>
+      </dd>
+      <dt>Régler à une valeur avec <code>=</code></dt>
+      <dd>
+        <p>Règle à une valeur donnée, peut importe la valeur précédente.</p>
+        <p>C'est la seule opération qui peut accepter des <a href="#interpolations">interpolations</a>.</p>
+        <pre>Vous finissez par craquer et mangez le pot de miel entier.
+@Player:food <strong>+100</strong>
+Il est bon, certes, mais vous avez une sensation curieuse pendant un instant.
+Vous en revoulez.
+Vous en revoulez tellement qu'il y avait sûrement de la nicotine dedans.
+Hélàs, le pot n'est plus qu'un verre totalement transparent.
+@Player:hungry_for_honey <strong>=1</strong></pre>
+      </dd>
+    </dl>
+    <p>Quand la cible est le joueur, vous pouvez l'omettre:</p>
+    <pre>@food -15</pre>
+    <p>Revient à faire...</p>
+    <pre>@Player:food -15</pre>
+    <p>Quand votre stat sera changée, le joueur le vera dans l'interface.</p>
+    <p>Comme le nom de propriété lié à l'objet python n'est pas toujours très joli, il faut associer le nom de propriété à un nom lisible.</p>
+    <p>Pour ce faire, ouvrez <code>constants.py</code> et ajouter des entrées dans le dictionnaire <code>STAT_NAMES</code></p>
+    <p>Les propriétés n'ayant pas de nom correspondant seront quand même modifiée, mais n'apparaîtront pas dans l'interace, ce qui peut être pratique.</p>
+    <h3>Les conditions</h3>
+    <p>Pour exécuter du code conditonnellement sans avoir à demander l'avis du joueur, vous pouvez utiliser des conditions:</p>
+    <pre><strong>=? #is_from == 'siberia'</strong> <em>1</em>
+  [Boris] Salut, je te sers une bière?
+<strong>=? #is_from == 'grand_harz'</strong> <em>2</em>
+  Борис ne semble pas vouloir vous parler.
+<strong>=!</strong> <em>3</em>
+  [Boris] Salut !</pre>
+    <dl class="horizontal">
+      <dt><em>1</em></dt>
+      <dd>La condition à mettre après <code>=?</code> est du code python, avec <code>#truc</code> remplacé par <code>self.player.truc</code>.</dd><br/>
+      <dt><em>2</em></dt>
+      <dd>Plusieurs <code>=?</code> peuvent être comme on echaînerait des <code>if...elif...elif...</code></dd><br/>
+      <dt><em>3</em></dt>
+      <dd>Code à exécuter si l'action précédente est fausse</dd>
+    </dl>
+    <h3 id="interpolations">Inclure du contenu dynamique</h3>
+    <p>Comment faire dire à un personnage "Salut, (nom du joueur ici)" ?</p>
+    <p>PyChemin propose la syntaxe suivante:</p>
+    <pre>[Melinda] Hello, <strong>#name</strong> !</pre>
+    <p>Ici, <code>#name</code> sera remplacé par le nom du joueur.</p>
+    <p>Voici la liste des variables utilisables</p>
+    <dl>
+      <dt>name</dt>
+      <dd>Le nom du joueur</dd>
+      <dt>answer</dt>
+      <dd>La dernière réponse du joueur.</dd>
+    </dl>
+  </body>
+  <h2>Comment ça marche?</h2>
+  <h3>grammar.lark</h3>
+  <p>La grammaire décrit la syntaxe d'un langage, par exemple, la ligne suivante
+    <pre>[Momodini] Vous avez eu 20/20 en IZN, #name !</pre>est décrite comme une <code>char_line</code> &mdash; ou ligne de personnage &mdash; et représente un texte prononcé par le personnage "Momodini".
+  </p>
+  <p>PyChemin utilise une libraire appelée <a href="https://lark-parser.readthedocs.io/en/latest/">lark</a> pour décrire et parser sa grammaire.</p>
+  <p>La ligne de l'exemple précédent est décrite comme ceci:
+    <pre>_char_text: _text
+_char_name: "[" /[^\]]+/ "]"
+char_line.2: _char_name " "* _char_text</pre>
+  </p>
+  <p>On n'entrera pas dans les détails de cette syntaxe mais, basiquement, un fichier de grammaire est composé de plusieurs règles, chacune décrivant des motifs pouvant être rencontré dans le texte à parser.</p>
+  <p>Ici, la ligne <code>_char_name: "[" /[^\</code>]+/ "]"] déclare une règle, appelée <code>char_name</code>, qui décrit la composition d'un nom de personnage:</p>
+  <ol>
+    <li>Un caractère "[" </li>
+    <li id="fn-1-ref-1">N'importe quel caractère excepté "]", une fois ou plus (en utilisant des expressions régulières<sup><a href="#fn-1" title="Nous n'expliquerons pas les expressions régulières ici, mais vous pouvez vous renseigner en ligne">1</a></sup>)</li>
+    <li>Un caractère "]"</li>
+  </ol>
+  <p>Une règle peut en contenir d'autres: la ligne <code>char_line.2: _char_name " "* _char_text</code> fait référence à deux autres règles.</p>
+  <p>Le fichier contient plusieurs de ces règles, et lark va les utiliser pour parser notre fichier <code>.pychemin</code></p>
+  <h3>parser.py</h3>
+  <p>Le travail du parser, c'est de scanner notre fichier <code>.pychemin</code>, et de, à l'aide du fichier décrivant la grammaire, extraire les informations utiles à l'exécution.</p>
+  <p>Il y a ici deux concepts importants:</p>
+  <dl>
+    <dt>Les tokens</dt>
+    <dd> 
+      <p>Ce sont des objets contenant une propriété <code>value</code>, qui contient la valeur qu'ils représentent, et une propriété <code>type</code> qui indique la nature de la valeur qu'ils représentent.</p>
+    </dd>
+    <dt>Les trees</dt>
+    <dd>
+      <p>Les trees sont composés d'un type, qui est égal au nom de la règle, et de plusieurs tokens ou autres trees.</p>
+      <p>Similairement aux tokens, les trees ont aussi un type.</p>
+    </dd>
+  </dl>
+  <p>Notre syntaxe est découpée de la manière suivante:</p>
+  <pre>Dialog
+  |—— Ligne <em>1</em>
+        |—— Indentations <em>2</em>
+        |—— Directive <em>3</em></pre>
+  <dl class="horizontal">
+    <dt><em>1</em></dt>
+    <dd>Une ligne est analogue à une véritable ligne dans le fichier, mais fragmentée selon la grammaire</dd><br/>
+    <dt><em>2</em></dt>
+    <dd>Chaque ligne peut avoir zéro, un ou plusieurs tokens d'indentation</dd><br/>
+    <dt><em>3</em></dt>
+    <dd>Une directive représente l'instruction décrite dans le fichier <code>.pychemin</code>, tel qu'une ligne du narrateur.</dd>
+  </dl>
+  <p>Un petit travail de post traitement transforme cette structure d'arbre en une liste de couples <code>(niveau_dindentation, directive)</code>.</p>
+  <p>Connaître ce niveau d'indentation nous sera utile pour traiter les blocs indentés.</p>
+  <h3>walker.py</h3>
+  <p>Une fois que notre fichier a été transformé en une liste de directives (avec leur niveau d'indentation respectifs), il faut enfin exécuter ce fichier, et afficher quelque chose au joueur.</p>
+  <p>C'est le travail du <span class="italic">walker</span>, qui va itérer chaque ligne et appeler les méthodes correspondantes au type de directive. Chaque directive est associée à une méthode, appelée <code>handle_&lt;type de la directive&gt;</code>.</p>
+  <p>Cependant, ce n'est pas aussi simple pour les directives qui sont conditionnées et ne s'éxecuteront pas à chaque fois.</p>
+  <h4>Gérer les conditions</h4>
+  <pre>[Artur] C'est bien #name ?
+>> oui
+    @Artur:relation +5
+>> non
+    Il soupire, désespéré
+>?.
+    Il soupire
+    [Artur] Je prends ça pour un oui...</pre>
+  <p>Ici, la ligne <code>Il soupire, désespéré</code> ne sera exécutée que si le joueur répond "oui": on ne peut pas juste itérer les lignes une par une et les exécuter: pour gérez des conditions, on doit d'abord collecter les conditions et leur associer des directives à exécuter. Pour cela, la classe <code>Walker</code> possède plusieurs propriétés.</p>
+  <p>On prendra par la suite l'exemple des directives constituants des questions à poser au joueur, mais une logique similaire est applicables aux directives <code>=?</code> et <code>=!</code></p>
+  <dl>
+    <dt>collecting_input (booléen)</dt>
+    <dd>Permet de savoir si l'on est en train de collecter des directives, pour éviter de les exécuter directement.</dd>
+    <dt>current_input (instance de <code>CurrentInput</code>)</dt>
+    <dd>Contient des informations sur la question que l'on va poser. Ses propriétés sont modifiées au fur et à mesure que l'on collecte les informations nécéssaires avant de poser la question au joueur.</dd>
+    <dt>current_input.actions_map (dictionnaire)</dt>
+    <dd> 
+      <p>C'est la propriété centrale de <code>current_input</code>. Elle contient une corresponsance entre une liste de choix et une liste de directives à exécuter si la réponse de l'utilisateur fait partie des choix correspondant. </p>
+      <p>Le souci, c'est que python n'accepte pas d'utiliser des listes comme clés de dictionnaires. Il faut donc transformer cette liste en une chaîne de caractères, avec le module <code>json</code>.</p>
+    </dd>
+    <p>Pour se faire une idée de la logique, voici un exemple:</p>
+    <p>On va exécuter l'algorithme suivant pour chaque entrée:</p>
+    <details open="open">
+      <summary>Si en train de collecter des informations sur <code>current_input</code> </summary>
+      <p>Si nous sommes en train de collecter des informations sur <code>current_input</code>, il y a deux cas possibles:</p>
+      <details open="open">
+        <summary>Si le niveau d'indentation est supérieur à celui de <code>current_input</code></summary>
+        <p>Dans ce cas là, la directive actuelle est indentée par rapport à la liste de choix précédente: c'est une directive à exécuter si la liste de choix la plus proche est celle choisie par l'utilisateur</p>
+        <ol>
+          <li>On ajoute la directive à <code>current_input.actions_map[current_case</code>]</li>
+        </ol>
+      </details>
+      <details open="open">
+        <summary>Sinon</summary>
+        <p>Dans ce cas là, on est face à deux situations:</p>
+        <details open="open">
+          <summary>Si la directive est une liste de choix</summary>
+          <p>Dans ce cas, nous sommes passé à la description d'un autre cas.</p>
+          <ol>
+            <li>On ajoute un nouveau cas à <code>current_input.actions_map</code></li>
+            <li>On change la valeur de <code>current_case</code> pour l'actualiser à la nouvelle liste de choix (c'est à dire la directive actuelle)</li>
+          </ol>
+        </details>
+        <details open="open">
+          <summary>Sinon</summary>
+          <p>Dans ce cas, nous sommes sortis de la condition, et cette ligne décrit tout simplement une directive quelconque qui ne concerne plus la réponse du joueur.</p>
+          <ol>
+            <li>On appelle <code>ui.ask</code> pour poser la question au joueur</li>
+            <li>On exécute les directives associées à la réponse du joueur</li>
+            <li>On exécute normalement la directive actuelle (voir le dernier "Sinon")</li>
+          </ol>
+        </details>
+      </details>
+    </details>
+    <details open="open">
+      <summary>Sinon</summary>
+      <ol>
+        <li>On récupère la méthode à appeler en fonction du type de directive</li>
+        <li>On appelle cette méthode</li>
+      </ol>
+    </details>
+    <p>Cet algorithme marche également </p>
+    <h3>ui.py</h3>
+    <p>Ce module décrit exclusivement des éléments liés à ce qui est visible au joueur: comment devrais-je afficher le texte du narrateur, et cætera.</p>
+    <h4>Écrire le texte avec un effet "machine à écrire"</h4>
+    <p>Au lieu d'écrire du texte instantanéement, il est plus sympathique et captivant de lire un texte qui s'écrit au fur et à mesure. </p>
+    <p>La fonction <code>typewritter</code> répond précisémment à ce besoin, en fragmentant le texte en caractères et en ajoutant un délai entre l'écriture de chaque caractère vers le terminal. De plus, cette fonction ajoute des pauses à la fin des phrases.</p>
+    <h4>Afficher des changements de statistiques</h4>
+    <p>Quand une statistique a un nom humain associé, il faut que l'utilisateur voit que sa stat a changée.</p>
+    <p>Pour ce faire, on calcule la différence entre l'ancienne valeur et la nouvelle afin de décider de la couleur du texte.</p>
+    <p>On affiche ensuite l'opération et sa valeur, le nom de la stat et la nouvelle valeur:</p>
+    <div class="image"><img src="/stat-changes-ui.png"/></div>
+    <h4>Faire parler les personnages</h4>
+    <p>Les paroles prononcées par des personnages sont indentiques à celles du narrateur pour la partie texte sauf que l'on préfixe leur texte avec le nom du personnage. </p>
+    <p>Chaque personnage est un objet instancié de la classe <code>Character</code>, et possède donc une couleur. Elle est utilisée comme couleur de fond pour le nom du personnage, et l'on décide de la couleur du texte en fonction: noir si l'arrière-plan est clair, et blanc dans le cas inverse, pour améliorer la lisibilité du nom.</p>
+  </dl>
+  <h2>Notes</h2>
+  <p id="fn-1"><sup>1</sup> Nous n'expliquerons pas les expressions régulières ici, mais vous pouvez vous renseigner en ligne <a href="#fn-1-ref-1">↑</a></p>
+</html>
