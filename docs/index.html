@@ -22,11 +22,11 @@
     <p>Vous serez sûrement amené, dans votre histoire, à interagir avec votre personnage.</p>Voici comment s'y prendre:
     <pre><strong>?</strong> Psst, choisissez un langage de programmation!
 <strong>>> js, javascript, python, ruby</strong>
-    [Ewen] Tu aimes le haut-niveau toi!
+		[Ewen] Tu aimes le haut-niveau toi!
 <strong>>> cpp, c++, c</strong>
-    [Ewen] Hmm. Je vois. Moi les pointeurs, ça me fait peur!
+		[Ewen] Hmm. Je vois. Moi les pointeurs, ça me fait peur!
 <strong>>?.</strong>
-    [Ewen] Ah. Je ne connais pas ton langage. Tan pis, ça à l'air de te plaire, et c'est l'essentiel!</pre>
+		[Ewen] Ah. Je ne connais pas ton langage. Tan pis, ça à l'air de te plaire, et c'est l'essentiel!</pre>
     <p>La première ligne, commençant par un "?", est facultative. Elle permet d'aider le joueur à repondre à la question, mais, la plupart du temps, le narrateur guide les choix du joueur.</p>
     <p>Les lignes commençant par ">>" indiquent les choix possibles, séparés par des virgules. Tout les réponses données par le joueur qui sont dans cette liste effectueront les actions dans ce bloc.</p>
     <p>Ne vous inquiétez pas, PyChemin est assez intelligent pour comprendre que "javascirpt" correspond à la première ligne</p>
@@ -38,12 +38,12 @@ Vous vous dirigez vers un cabanon, recouvert par des lianes.
 Après plusieurs minutes de combat, vous entrez dans le cabanon.
 Il y a un pot de miel, une guitare et un trombone, tous posés sur un coffre au fond de la salle.
 <strong>>* Miel</strong>
-  Le miel semble bon. 
-  Mais vu la date de péremption, dépassée depuis 32 ans, vous ne risquez pas une tartine.
+	Le miel semble bon. 
+	Mais vu la date de péremption, dépassée depuis 32 ans, vous ne risquez pas une tartine.
 <strong>>* Guitare</strong>
-  Elle est totalement désaccordée
+	Elle est totalement désaccordée
 <strong>>* Trombonne</strong>
-  Il requiert tant de souffle que vous n'arrivez pas à en faire sortir un seul son
+	Il requiert tant de souffle que vous n'arrivez pas à en faire sortir un seul son
 Après avoir inspecté tout les objets de la pièce, vous remarquez que le soleil a changé.
 </pre>
     <h3>Chapitres & Actes</h3>
@@ -63,11 +63,11 @@ Après avoir inspecté tout les objets de la pièce, vous remarquez que le solei
     <p>En suite, pour les appeler dans votre histoire, rien de plus simple:</p>
     <pre>Vos choix pourront peut-être changer l’histoire... A vous de choisir votre camp.
 >> reine, lydia, von hardenberg, royaume
-    <strong>-> côté reine</strong> <em>1</em>
+		<strong>-> côté reine</strong> <em>1</em>
 >> resistance, revolte, rebellion, résistant
-    <strong>-> côté résistance</strong> <em>2</em>
+		<strong>-> côté résistance</strong> <em>2</em>
 >?
-    Veuillez choisir un camp !</pre>
+		Veuillez choisir un camp !</pre>
     <dl class="horizontal">
       <dt><em>1</em></dt>
       <dd>Lancera "cote_reine.pychemin"</dd><br/>
@@ -108,11 +108,11 @@ Hélàs, le pot n'est plus qu'un verre totalement transparent.
     <h3>Les conditions</h3>
     <p>Pour exécuter du code conditonnellement sans avoir à demander l'avis du joueur, vous pouvez utiliser des conditions:</p>
     <pre><strong>=? #is_from == 'siberia'</strong> <em>1</em>
-  [Boris] Salut, je te sers une bière?
+	[Boris] Salut, je te sers une bière?
 <strong>=? #is_from == 'grand_harz'</strong> <em>2</em>
-  Борис ne semble pas vouloir vous parler.
+	Борис ne semble pas vouloir vous parler.
 <strong>=!</strong> <em>3</em>
-  [Boris] Salut !</pre>
+	[Boris] Salut !</pre>
     <dl class="horizontal">
       <dt><em>1</em></dt>
       <dd>La condition à mettre après <code>=?</code> est du code python, avec <code>#truc</code> remplacé par <code>self.player.truc</code>.</dd><br/>
@@ -140,8 +140,8 @@ Hélàs, le pot n'est plus qu'un verre totalement transparent.
   <p>Par exemple, voici comment est ajouté un personnage que l'on pourra référencer par "GénéralDuWSL" dans le fichier pychemin:</p>
   <div class="filename">characters.py</div>
   <pre>GénéralDuWSL = Character(
-  name="Général du WSL",
-  # ...
+	name="Général du WSL",
+	# ...
 )</pre>
   <p>Les deux classes héritent de la classe <code>Being</code>, qui implémente le changement de stat, car cette action est la même que la cible soit le joueur ou un personnage.</p>
   <h3>grammar.lark</h3>
@@ -180,9 +180,9 @@ char_line.2: _char_name " "* _char_text</pre>
   </dl>
   <p>Notre syntaxe est découpée de la manière suivante:</p>
   <pre>Dialog
-  |—— Ligne <em>1</em>
-        |—— Indentations <em>2</em>
-        |—— Directive <em>3</em></pre>
+	|—— Ligne <em>1</em>
+				|—— Indentations <em>2</em>
+				|—— Directive <em>3</em></pre>
   <dl class="horizontal">
     <dt><em>1</em></dt>
     <dd>Une ligne est analogue à une véritable ligne dans le fichier, mais fragmentée selon la grammaire</dd><br/>
@@ -196,11 +196,11 @@ char_line.2: _char_name " "* _char_text</pre>
   <div class="filename">Fichier .pychemin</div>
   <pre>[Ewen] Je ne sais pas quoi dire.
 >> moi non plus
-  [Ewen] Et Melinda ? Tu es d'accord avec elle ?
-  >> oui
-    <strong>@Melinda:relation +5</strong>
-  >?.
-    [Ewen] Bref, il faut sortir de cet exemple...</pre>
+	[Ewen] Et Melinda ? Tu es d'accord avec elle ?
+	>> oui
+		<strong>@Melinda:relation +5</strong>
+	>?.
+		[Ewen] Bref, il faut sortir de cet exemple...</pre>
   <p>Par exemple, voici une représentation d'un AST pour la cinquième ligne de l'extrait ci-dessus</p>
   <div class="image"><img src="./ast_hyperis.png"/></div>
   <h3>walker.py</h3>
@@ -211,12 +211,12 @@ char_line.2: _char_name " "* _char_text</pre>
   <div class="filename">Fichier .pychemin</div>
   <pre>[Artur] C'est bien #name ?
 >> oui
-    @Artur:relation +5
+		@Artur:relation +5
 >> non
-    Il soupire, désespéré
+		Il soupire, désespéré
 >?.
-    Il soupire
-    [Artur] Je prends ça pour un oui...</pre>
+		Il soupire
+		[Artur] Je prends ça pour un oui...</pre>
   <p>Ici, la ligne <code>Il soupire, désespéré</code> ne sera exécutée que si le joueur répond "oui": on ne peut pas juste itérer les lignes une par une et les exécuter: pour gérez des conditions, on doit d'abord collecter les conditions et leur associer des directives à exécuter. Pour cela, la classe <code>Walker</code> possède plusieurs propriétés.</p>
   <p>On prendra par la suite l'exemple des directives constituants des questions à poser au joueur, mais une logique similaire est applicables aux directives <code>=?</code> et <code>=!</code></p>
   <dl>
@@ -280,7 +280,7 @@ char_line.2: _char_name " "* _char_text</pre>
     <p>Quand une statistique a un nom humain associé, il faut que l'utilisateur voit que sa stat a changée.</p>
     <p>Pour ce faire, on calcule la différence entre l'ancienne valeur et la nouvelle afin de décider de la couleur du texte.</p>
     <p>On affiche ensuite l'opération et sa valeur, le nom de la stat et la nouvelle valeur:</p>
-    <div class="image"><img src="/stat-changes-ui.png"/></div>
+    <div class="image"><img src="./stat-changes-ui.png"/></div>
     <h4>Faire parler les personnages</h4>
     <p>Les paroles prononcées par des personnages sont indentiques à celles du narrateur pour la partie texte sauf que l'on préfixe leur texte avec le nom du personnage. </p>
     <p>Chaque personnage est un objet instancié de la classe <code>Character</code>, et possède donc une couleur. Elle est utilisée comme couleur de fond pour le nom du personnage, et l'on décide de la couleur du texte en fonction: noir si l'arrière-plan est clair, et blanc dans le cas inverse, pour améliorer la lisibilité du nom.</p>
