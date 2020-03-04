@@ -2,32 +2,34 @@
 @import reset
 
 body
-  max-width 800px
-  margin 0 auto
-  font-family 'CircularStd'
-  font-weight 200
-  font-size 15px
-  padding-bottom 100vh
-  scroll-padding-top 20px
+	max-width 800px
+	margin 0 auto
+	font-family 'CircularStd'
+	font-weight 200
+	font-size 15px
+	padding-bottom 100vh
+	scroll-padding-top 20px
+	padding 0 15px
+	overflow-x hidden
 
 h1
-  font-family 'CircularStd'
-  font-weight 600
-  font-size 10vmin
-  margin-bottom 0
+	font-family 'CircularStd'
+	font-weight 600
+	font-size 10vmin
+	margin-bottom 0
 
 p.intro
-  margin-top -.5em
-  font-size 1.5em
-  text-align center
-  font-weight normal
+	margin-top -.5em
+	font-size 1.5em
+	text-align center
+	font-weight normal
 
 h1, .center
-  text-align center
-  
+	text-align center
+	
 .italic
-  font-style italic
-  
+	font-style italic
+	
 // h2
 //   font-size 1.5em
 //   margin-bottom -0.8em
@@ -37,96 +39,111 @@ h1, .center
 //   text-align left
 
 h2
-  text-align center
-  font-size 3em
-  font-weight normal
-  page-break-before always
-  font-weight normal
-  
+	text-align center
+	font-size 3em
+	font-weight normal
+	page-break-before always
+	font-weight normal
+	
 h3
-  &::before
-    content '###'
-    font-family 'Ligconsolata'
-    font-weight 600
-    margin-right 0.25em
-    opacity 0.25
-  font-size 2em
-  margin-bottom 0.5em
-  // font-weight normal
-  font-weight 500
+	&::before
+		content '###'
+		font-family 'Ligconsolata', monospace
+		font-weight 600
+		margin-right 0.25em
+		opacity 0.25
+	font-size 2em
+	margin-bottom 0.5em
+	// font-weight normal
+	font-weight 500
 
 .filename
-  font-style italic
-  text-align center
+	font-style italic
+	text-align center
 
+.btn
+	cursor pointer
+	padding .5em .7em
+	background #1389fd
+	color white
+	border-radius 5px
+	text-decoration none
+	&:hover
+		background #006bd4
+		color #c7edff
+	&.fixed
+		position fixed
+		top 3vmin
+		left 3vmin
+		z-index 100
 h4
-  &::before
-    content '####'
-    font-family 'Ligconsolata'
-    font-weight 600
-    margin-right 0.25em
-    opacity 0.25
-  font-size 1.5em
-  margin-bottom 0.5em
-  font-weight normal
+	&::before
+		content '####'
+		font-family 'Ligconsolata', monospace
+		font-weight 600
+		margin-right 0.25em
+		opacity 0.25
+	font-size 1.5em
+	margin-bottom 0.5em
+	font-weight normal
 
 dl dd
-  margin-left 1em
+	margin-left 1em
 dl dt
-  color #1389FD
-  font-size 1.2em
-  margin-bottom 0.25em
-  margin-top 0.75em
+	color #1389FD
+	font-size 1.2em
+	margin-bottom 0.25em
+	margin-top 0.75em
 
 dl.horizontal
-  dt, dd
-    display inline-block
-    margin 0
-  dt
-    margin-right 0.5em
-    margin-bottom 1.2em
+	dt, dd
+		display inline-block
+		margin 0
+	dt
+		margin-right 0.5em
+		margin-bottom 1.2em
 
 pre
-  display block
-  background #E7F8FF
-  border-radius 5px
-  font-size 0.9em
-  padding 1.2em
-  white-space pre
-  overflow-x auto
-  line-height 1.2
-  font-family 'Ligconsolata'
-  font-feature-settings 'liga' 0
-  vertical-align middle
+	display block
+	background #E7F8FF
+	border-radius 5px
+	font-size 0.9em
+	padding 1.2em
+	white-space pre
+	overflow-x auto
+	line-height 1.2
+	font-family 'Ligconsolata', monospace
+	font-feature-settings 'liga' 0
+	vertical-align middle
 
 details details
-  margin-left 1em
+	margin-left 1em
 details
-  margin-top 1em
+	margin-top 1em
 summary
-  font-style italic
+	font-style italic
 details p
-  margin-top .25em
-  margin-left 1.125em
+	margin-top .25em
+	margin-left 1.125em
 
 pre strong
-  font-weight bold
-  font-size 1.2em
-  display inline-block
+	font-weight bold
+	font-size 1.2em
+	display inline-block
 
 em
-  font-family 'CircularStd'
-  background #222222
-  display inline-flex
-  justify-content center
-  align-items center
-  color white
-  width 20px
-  height 20px
-  font-size 1rem
-  border-radius 50%
+	font-family 'CircularStd'
+	background #222222
+	display inline-flex
+	justify-content center
+	align-items center
+	color white
+	width 20px
+	height 20px
+	font-size 1rem
+	border-radius 50%
 
 .image
-  width 100%
-  display flex
-  justify-content center
+	width 100%
+	display flex
+	justify-content center

@@ -8,6 +8,7 @@ html(lang="en")
   body
     h1 PyChemin
     p.intro Un langage simple et naturel pour écrires des aventures textuelles interactives
+    a.fixed.btn(href="//github.com/ewen-lbh/hyperis") Code source
     
     h2 La syntaxe
     p PyChemin utilise une syntaxe très brève, constituée de séquences de caractères que l'on ne peut trouver facilement dans du texte, permettant l'écriture de contenu sans encombres. Pas d'ambiguité possible.
@@ -38,7 +39,7 @@ html(lang="en")
           [Ewen] Ah. Je ne connais pas ton langage. Tan pis, ça à l'air de te plaire, et c'est l'essentiel!
     p La première ligne, commençant par un "?", est facultative. Elle permet d'aider le joueur à repondre à la question, mais, la plupart du temps, le narrateur guide les choix du joueur.
     p Les lignes commençant par ">>" indiquent les choix possibles, séparés par des virgules. Tout les réponses données par le joueur qui sont dans cette liste effectueront les actions dans ce bloc.
-    p Ne vous inquiétez pas, PyChemin est assez intelligent pour comprendre que "javascirpt" correspond à la première ligne (#[a(href="#input-processing") Voir comment])
+    p Ne vous inquiétez pas, PyChemin est assez intelligent pour comprendre que "javascirpt" correspond à la première ligne
     p La ligne ">?." Indique quoi faire si le joueur répond en dehors des clous. En écrivant ">?" au lieu de ">?.", on indique à PyChemin que la question doit ensuite être posée de nouveau. Avec un point à la fin, l'histoire continue normalement.
     p "Et si j'ai plusieurs choix et que le joueur doit passer par toutes les réponses?"
     p Pas de soucis. Utilisez ">*" au lieu de ">>":
