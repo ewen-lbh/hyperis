@@ -1,7 +1,6 @@
 colr
 unidecode
-fuzzywuzzy
-python-levenshtein
+rapidfuzz
 termcolor
 lark-parser
 pynput
